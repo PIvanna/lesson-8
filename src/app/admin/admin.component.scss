@@ -1,0 +1,43 @@
+@import "../../app/shared/styles/base";
+@import "../../app/shared/styles/mixins";
+@import "../../app/shared/styles/variables";
+
+.container {
+    @include box(95%, 100%);
+    min-height: 100px;
+    margin: 100px auto;
+    @include flex-row(flex, row, space-between, start);
+
+   
+    
+    .menu {
+        @include box(20%, 500px);
+        @include flex-row(flex, column, start, start);
+        
+        
+
+        .punkts-menu {
+            @include box(100%, 20%);
+            border-top: 2px solid #5a5a5a;
+            border-right: 2px solid #5a5a5a;
+            @include flex-row(flex, row, center, center);
+            @include text(24px, sans-serif, normal);
+            letter-spacing: 1px;
+            color: #5a5a5a;
+        }
+
+        .route-active-admin{
+            border-top: 10px solid #b5d8f7;
+            font-weight: bold;
+            font-size: 30px;
+            border-right: none;
+        }
+    }
+
+    .cont{
+        width: 70%;
+        min-height: 100px;
+        @include flex-row(flex, column, start, start);
+
+    }
+}

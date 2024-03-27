@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="menu">
+        <div [routerLink]="[ '/admin/discount' ]" routerLinkActive="route-active-admin" class="punkts-menu">Акції</div>
+        <div  [routerLink]="[ '/admin/category' ]" routerLinkActive="route-active-admin" class="punkts-menu">Категорії</div>
+        <div class="punkts-menu">Товари</div>
+        <div class="punkts-menu">Замовлення</div>
+        <div style="border-right: none;" class="punkts-menu"></div>
+    </div>
+    <div class="cont">
+        <router-outlet></router-outlet>
+    </div>
+</div>

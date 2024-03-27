@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="add">
+        <button type="button" [ngClass]="{'active-but': bShowForm}" (click)="showForm()" class="butAdd">Додати
+            акцію</button>
+        <form [style.display]="bShowForm ? 'block' : 'none'" [formGroup]="discountForm" (ngSubmit)="addDiscount()">
+            <div class="first-part">
+                <input formControlName="createdDate" style="width: 0; height: 0; display: none;" type="date">
+                <input formControlName="name" class="input-first-part" [placeholder]="placeholderName" type="text">
+                <input formControlName="title" class="input-first-part" [placeholder]="placeholderTitle" type="text">
+            </div>
+            <textarea formControlName="description" [placeholder]="placeholderDescription" name="" id="" cols="30"
+                rows="10"></textarea>
+            <div *ngIf="!isUploaded">
+                <input type="file" (change)="upload($event)" id="myFile" style="display: none;">
+                <div style="display: flex; align-items: center;">
+                    <label for="myFile" class="custom-file-upload">Вибрати файл</label>
+                    <span>{{ selectedFileName ? 'Файл вибрано: ' + selectedFileName : 'Файл не обрано' }}</span>
+                </div>
+                <div>
+                    <div class="progress-bar" role="progressbar" [style.width.%]="uploadPercent"></div>
+                </div>
+            </div>
+            <div *ngIf="isUploaded" style="display: flex; flex-direction: column;">
+                <img id="imgUp" [src]="valueByControl('imagePath')" alt="">
+                <button type="button" class="delImg" (click)="deleteImage()">delete</button>
+            </div>
+            <button [disabled]="discountForm.invalid" type="submit" [ngClass]="{'active-but': bShowForm}"
+                (click)="showForm()" class="butAddElement"> {{ editStatus ? 'Save' : 'Add' }}</button>
+        </form>
+    </div>
+
+    <div class="table">
+        <div class="topTable">
+            <div style="width: 10%;" class="elementTable">Дата</div>
+            <div style="width: 10%;" class="elementTable">Назва</div>
+            <div style="width: 20%" class="elementTable">Заголовок</div>
+            <div style="width: 24%;" class="elementTable">Опис</div>
+            <div class="elementTable">Картинка</div>
+            <div class="elementTable">Дії</div>
+        </div>
+        <div class="restTable" *ngFor="let discount of adminDiscounts; index as i ">
+            <div style="width: 10%;" class="elementTable">{{ discount.date | date: 'MM/yyyy' }}</div>
+            <div style="width: 10%;" class="elementTable">{{ discount.name }}</div>
+            <div style="width: 20%" class="elementTable">{{ discount.title | slice:0:10 }}
+                <span *ngIf="discount.description.length > 10">...</span>
+            </div>
+            <div style="width: 24%;" class="elementTable">{{ discount.description | slice:0:10 }}
+                <span *ngIf="discount.description.length > 10">...</span>
+            </div>
+            <div class="elementTable">
+                <img [src]="discount.imagePath" alt="">
+            </div>
+            <div class="elementTable">
+                <button class="pManage" (click)="editDiscount(discount)">Редагувати</button>
+                <button class="pManage" [disabled]="editStatus" (click)="deleteDiscount(discount)">Видалити</button>
+            </div>
+        </div>
+    </div>
+</div>

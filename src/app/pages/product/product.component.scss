@@ -1,0 +1,130 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins";
+@import "../../shared/styles/variables";
+
+.container {
+    width: 80%;
+    margin: auto;
+
+    #name {
+        @include box(280px, 50px);
+        @include text(55px, sans-serif, bold);
+        margin: 50px auto;
+        text-align: center;
+        border-top: 6px solid $base-color;
+
+    }
+
+    .text {
+        width: 80%;
+        min-height: 100px;
+        margin: 40px auto;
+
+        h1 {
+            @include text(64px, sans-serif, bold);
+            margin: 20px 0;
+        }
+
+        p {
+            @include text(30px, sans-serif, normal);
+            margin: 10px 0;
+            line-height: 40px;
+            text-align: justify
+        }
+
+        ul li {
+            @include text(30px, sans-serif, normal);
+            margin: 10px 50px;
+            line-height: 40px;
+            color: $base-color;
+            text-align: justify
+        }
+
+        ul li span {
+            @include text(30px, sans-serif, normal);
+            line-height: 40px;
+            color: black;
+        }
+
+        h2 {
+            @include text(44px, sans-serif, bold);
+            margin: 20px 0;
+        }
+
+        #showMoreButPoli {
+            width: 265px;
+            height: 40px;
+            @include text(30px, sans-serif, bold);
+            border: none;
+            color: $base-color;
+            background-color: inherit;
+            border-bottom: 4px solid transparent;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+
+
+
+        #showMoreButPoli:hover+hr {
+            //display: block;
+            width: 265px;
+        }
+
+        .sub-text {
+            #closeMoreButPoli {
+                width: 135px;
+                height: 40px;
+                @include text(30px, sans-serif, bold);
+                border: none;
+                color: $base-color;
+                background-color: inherit;
+                border-bottom: 4px solid transparent;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:hover+hr {
+                    width: 135px;
+                }
+
+            }
+
+
+
+            #pLogo {
+                color: $base-color;
+
+
+
+            }
+
+            #linepLogo {
+                width: 0;
+                height: 4px;
+                border: none;
+                background-color: $base-color;
+                transition: width 0.3s ease-out;
+
+            }
+
+            #pLogo:hover+#linepLogo {
+                width: 160px;
+                cursor: pointer;
+            }
+        }
+
+
+        hr {
+            width: 0;
+            height: 4px;
+            border: none;
+            background-color: $base-color;
+            transition: width 0.3s ease-out;
+
+        }
+    }
+}

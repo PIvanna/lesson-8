@@ -1,0 +1,116 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins";
+@import "../../shared/styles/variables";
+
+.container {
+    width: 80%;
+    margin: auto;
+
+    #name,
+    #pay {
+        @include box(531px, 50px);
+        @include text(55px, sans-serif, bold);
+        margin: 50px auto;
+        text-align: center;
+        border-top: 6px solid $base-color;
+    }
+
+    #pay {
+        @include box(210px, 50px);
+        margin: 100px auto 50px
+    }
+
+    .block {
+        @include box(100%, 300px);
+        @include flex-row(flex, row, space-around, center);
+        margin: 50px 0;
+
+        .zone {
+            @include box(40%, 100%);
+            @include flex-row(flex, row, space-between, center);
+
+            img {
+                @include box(380px, 380px);
+            }
+
+            .zoneWrapper {
+                @include box(50%, 100%);
+                @include flex-row(flex, column, center, center);
+
+
+                .nameZone {
+                    @include text(36px, sans-serif, bold)
+                }
+
+                .zoneText {
+                    @include box(100%, 40px);
+                    @include text(20px, sans-serif, normal);
+                    text-align: center;
+                    margin: 20px;
+                }
+            }
+
+
+        }
+    }
+
+    .wrapper-map {
+        @include flex-row(flex, row, space-between, center);
+        margin: 50px 0;
+
+        #map {
+            @include box(100%, 800px);
+        }
+
+    }
+
+
+    .text {
+        @include text(30px, sans-serif, normal);
+        margin: 30px 0;
+        line-height: 40px;
+        text-align: justify;
+    }
+
+
+    .block-payment {
+        @include box(80%, 150px);
+        margin: 50px auto;
+        @include flex-row(flex, row, space-between, center);
+
+        .item-payment {
+            @include box(50%, 100%);
+            @include flex-row(flex, row, space-around, center);
+
+            .background {
+                @include box(100px, 100px);
+                align-self: start;
+                @include flex-row(flex, row, center, center);
+                background-color: $base-color;
+                border-radius: 20px;
+
+                img {
+                    @include box(50px, 50px);
+                }
+
+            }
+
+            .textPayment {
+                @include box(400px, 100%);
+                @include flex-row(flex, column, space-around, start);
+
+                .namePayment {
+                    @include text(32px, sans-serif, bold);
+                }
+
+                .pPayment{
+                    @include text(20px, sans-serif, normal);
+                    line-height: 30px;
+                }
+
+            }
+        }
+
+    }
+
+}

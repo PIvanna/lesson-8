@@ -1,0 +1,153 @@
+@import "../../shared/styles/_base.scss";
+@import "../../shared/styles/_mixins.scss";
+@import "../../shared/styles/_variables.scss";
+
+.container {
+    @include box(100%, 300px);
+    border-top: 5px solid $base-color;
+    @include flex-row(flex, row, space-between, center);
+
+    .logo {
+        @include box(300px, 100%);
+        @include flex-row(flex, column, space-around, center);
+        &:hover{
+            cursor: pointer;
+
+        }
+        img {
+            @include box(200px, 200px);
+        }
+
+        p {
+            @include box(200px, 100px);
+            @include text(20px, sans-serif, normal);
+        }
+    }
+
+    .menu {
+        @include box(600px, 100%);
+        @include flex-row(flex, column, space-around, center);
+
+        .up {
+            @include box(600px, 37px);
+
+            ul {
+                @include box(600px, 50px);
+                @include flex-row(flex, row, space-around, center);
+
+                li {
+                    padding-top: 50px;
+                    list-style: none;
+                    line-height: 100px;
+                    @include text(24px, sans-serif, normal);
+                    transition: color 0.3s;
+
+                    &:hover{
+                        color: $base-color;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .down {
+            @include box(600px, 50px);
+            @include flex-row(flex, row, center, center);
+
+            .item {
+                margin: 10px;
+                @include box(100px, 50px);
+                border: 1px solid #dcdcdc;
+                border-radius: 10px;
+                @include flex-row(flex, row, center, center);
+
+                img {
+                    @include box(50px, 50px);
+
+                }
+            }
+        }
+    }
+
+    .address {
+        @include box(350px, 100%);
+        @include flex-row(flex, column, space-around, center);
+
+        p {
+            @include text(20px, sans-serif, normal);
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .follow {
+            @include box(350px, 100px);
+            @include flex-row(flex, row, space-between, center);
+
+            p {
+                @include box(180px, 100px);
+                @include text(20px, sans-serif, normal);
+                line-height: 100px;
+            }
+
+            .logo {
+                @include box(150px, 100px);
+                @include flex-row(flex, row, space-between, center);
+
+                .item {
+                    @include box(65px, 70px);
+                    border-radius: 15px;
+                    background-color: $base-color;
+                    @include flex-row(flex, row, center, center);
+                    border: 3px solid transparent;
+                    transition: background-color 0.3s, border-color 0.3s;
+
+                    img {
+                        @include box(25px, 25px);
+                    }
+
+                    &:hover{
+                        background-color: white;
+                        border-color: $base-color;
+                        cursor: pointer
+                    }
+                }
+            }
+        }
+    }
+
+    .phone {
+        @include box(300px, 100%);
+
+        padding-top: 20px;
+
+        p{
+            @include text(20px, sans-serif, normal);
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #number{
+            transition: color 0.3s;
+
+            &:hover{
+                color: $base-color;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .shop {
+        @include box(300px, 100%);
+        padding-top: 20px;
+
+        .up{
+
+            p{
+                @include text(20px, sans-serif, normal);
+                text-align: center;
+                line-height: 30px;
+            }
+        }
+    }
+}

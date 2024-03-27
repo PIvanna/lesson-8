@@ -1,0 +1,72 @@
+{
+  "discounts": [
+    {
+      "id": "9c62",
+      "date": "2024-03-27T00:08:15.829Z",
+      "name": "Рол тижня ",
+      "title": "50% знижки на \"Рол тижня\"",
+      "description": "Щотижня діє знижка 50% на один з ролів у нашому меню.\n“Рол тижня” ви можете знайти на головній сторінці нашого сайту.\nЗнижка діє при мінімальній сумі замовлення 300 грн.\nЦя акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fdisc-1.jpg?alt=media&token=19dd5de5-f90f-4747-9405-c8b37bdd04f8"
+    },
+    {
+      "id": "f7ab",
+      "date": "2024-03-27T00:12:40.240Z",
+      "name": "Самовивіз",
+      "title": "Самовивіз",
+      "description": "Забирайте своє замовлення самостійно та отримуйте такі переваги:\n\nЗапечені моно макі з лососем у подарунок.\nВідсутність мінімальної суми замовлення.\nЧас очікування на замовлення до 30 хв.\nДля отримання акційного ролу у подарунок зберігається умова мінімальної суми замовлення 300 грн.\nЦя акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fdisc-3.jpg?alt=media&token=9db5b5c8-9b78-4a39-8114-e593040074c2"
+    },
+    {
+      "id": "9bda",
+      "date": "2024-03-27T00:13:26.879Z",
+      "name": "3+1=5",
+      "title": "3+1=5",
+      "description": "Замовляйте 5 ролів, а платіть за 4.\nЗамовляйте 10 ролів, а платіть за 8 і так далі.\nБезкоштовним вважається рол з найменшою вартістю.\nЦя акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fdisc-2.jpg?alt=media&token=5d8530a8-9441-4db0-a909-55bf1f8caf0b"
+    },
+    {
+      "id": "0855",
+      "date": "2024-03-27T00:17:57.132Z",
+      "name": "День народження з Моносуші",
+      "title": "День народження з Моносуші",
+      "description": "Скористатися акцією можна просто:\n\nЗамовте суші на 750 грн та більше. Це можуть бути будь-які позиції з нашого меню.\nОберіть зі списку акцій – “Акцію до дня народження” під час оформлення замовлення. \nПокажіть кур’єру при отриманні  документ (оригінал), який підтверджує вашу дату народження.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fdisc-4.jpg?alt=media&token=58128f76-9707-484b-8621-9d3ff74aa5c7"
+    },
+    {
+      "id": "4576",
+      "date": [
+        "2024-03-27T00:32:03.384Z"
+      ],
+      "name": "Фотомарафон",
+      "title": "Фотомарафон",
+      "description": "Розіграш проводиться в соціальній мережі – Instagram.\nЩоб стати учасником розіграшу варто зробити будь-який контент на задану тему з нашими ролами. Це може бути фото, відео, tik-tok.\nОбов’язково позначай нас на пості або сторі, щоб стати учасником марафону. ( інакше ми вас не побачимо )\nМарафон діє на постійній основі.\nПереможці визначаються два рази на місяць.\nПерше місце-Запечений сирний з лососем.\nДруге місце-Філадельфія з лососем.\nТретє місце-Запечені моно макі з креветкою.\nДеталі актуального марафону уточнюйте в нашому Instagram: @monosushi.com.ua\n",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fdisc-5.jpg?alt=media&token=b4c46613-3e7c-4304-a258-762f8040eebe"
+    }
+  ],
+  "categories": [
+    {
+      "id": "360e",
+      "name": "роли",
+      "path": "roli",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+    },
+    {
+      "id": "e4f8",
+      "name": "сети ",
+      "path": "setu",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=3c2d6fc1-931a-40f0-9992-d004926fd7d7"
+    },
+    {
+      "id": "5760",
+      "name": "напої",
+      "path": "drinks",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=ea73815d-0af7-427a-8131-294708995ce9"
+    },
+    {
+      "id": "f70c",
+      "name": "соуси",
+      "path": "sousi",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sousi.svg?alt=media&token=d1454ce0-f48a-4dcc-9cce-4b37075d89e3"
+    }
+  ]
+}

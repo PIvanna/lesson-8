@@ -1,0 +1,314 @@
+@import "../../shared/styles/_base.scss";
+@import "../../shared/styles/_mixins.scss";
+@import "../../shared/styles/_variables.scss";
+
+.container {
+    @include box(100%, 120px);
+    @include flex-row(flex, row, none, center);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+    .logo {
+        @include box(11%, 100%);
+        @include flex-row(flex, row, center, center);
+        background-color: $base-color;
+
+        &:hover {
+            cursor: pointer;
+
+        }
+    }
+
+    .menu {
+        @include box(35%, 100%);
+        @include flex-row(flex, row, space-around, center);
+        position: relative;
+
+        .item {
+            @include box(15%, 75%);
+            @include flex-row(flex, column, center, center);
+            position: relative; // Додали для позиціонування псевдоелементів
+            border: 3px solid transparent;
+            border-radius: 10px;
+            transition: 1s;
+            text-transform: capitalize;
+            text-align: center;
+            vertical-align: baseline;
+
+            &:hover {
+                cursor: pointer;
+
+            }
+
+            img {
+                @include box(47px, 47px);
+            }
+
+            .nameOfCategory {
+                margin-top: 10px;
+                @include text(18px, sans-serif, bold);
+            }
+
+            // Анімація з'явлення бордера змійкою
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                border: 3px solid transparent;
+                width: 0;
+                height: 0;
+                border-radius: 7px;
+            }
+
+            // Додали анімацію для лівого та нижнього бордерів
+            &:hover::after {
+                border-left-color: #b5d8f7;
+                border-bottom-color: #b5d8f7;
+                transition: border-color 0s ease-out 0.12s, width 0.15s ease-out 0.15s, height 0.25s ease-out 0.25s;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            &:hover::before {
+                top: 0;
+                left: 0;
+                border-top-color: #b5d8f7;
+                border-right-color: #b5d8f7;
+                transition: width 0.1s ease-out, height 0.1s ease-out 0.1s;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .menuSmall {
+            position: absolute;
+            right: -165px;
+            top: 0;
+            z-index: 2;
+            @include box(300px, 350px);
+            border: 5px solid $base-color;
+            background-color: white;
+            border-radius: 20px;
+
+
+            #close {
+                @include box(300px, 300px);
+                @include flex-row(flex, column, start, start);
+
+                #closeSpan {
+                    @include text(100px, sans-serif, normal);
+                    margin-top: 0px;
+                    text-align: center;
+                    transform: rotate(45deg);
+                    margin-left: 40px;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+
+                }
+
+                ul {
+                    @include box(300px, 180px);
+                    @include flex-row(flex, column, space-between, center);
+
+                    li {
+                        @include box(220px, 50px);
+                        list-style: none;
+                        @include text(20px, sans-serif, bold);
+                        position: relative; // Додали для позиціонування псевдоелементів
+                        border: 3px solid transparent;
+                        border-radius: 10px;
+                        transition: 1s;
+                        text-align: left;
+                        line-height: 50px;
+                        padding-left: 10px;
+                        &:hover {
+                            cursor: pointer;
+
+                        }
+
+                        &::before,
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            z-index: 2;
+                            border: 3px solid transparent;
+                            width: 0;
+                            height: 0;
+                            border-radius: 7px;
+                        }
+
+                        // Додали анімацію для лівого та нижнього бордерів
+                        &:hover::after {
+                            border-left-color: #b5d8f7;
+                            border-bottom-color: #b5d8f7;
+                            transition: border-color 0s ease-out 0.12s, width 0.15s ease-out 0.15s, height 0.25s ease-out 0.25s;
+                            bottom: 0;
+                            right: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        &:hover::before {
+                            top: 0;
+                            left: 0;
+                            border-top-color: #b5d8f7;
+                            border-right-color: #b5d8f7;
+                            transition: width 0.1s ease-out, height 0.1s ease-out 0.1s;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+    }
+
+    .call {
+        margin-left: 60px;
+        @include box(11%, 38%);
+        border-radius: 10px;
+        border: 4px solid transparent;
+        @include flex-row(flex, row, space-around, center);
+        background-color: $base-color;
+        transition: border 0.3s, background-color 0.3s;
+
+        &:hover {
+            cursor: pointer;
+
+        }
+
+        .callText {
+            @include text(18px, sans-serif, bold);
+        }
+
+        img {
+            @include box(15px, 25px);
+        }
+
+        &:hover {
+            border: 4px solid $base-color;
+            background-color: white;
+        }
+    }
+
+    .info {
+        @include box(11%, 100%);
+        margin-left: 60px;
+        @include flex-row(flex, column, center, center);
+
+        .numberOfPhone {
+            @include text(20px, sans-serif, bold);
+            transition: color 0.3s;
+
+            &:hover {
+
+                cursor: pointer;
+                color: #b5d8f7;
+            }
+        }
+
+        .table {
+            @include text(16px, sans-serif, normal);
+        }
+    }
+
+    .user {
+        @include box(4%, 50%);
+        margin-left: 100px;
+        @include flex-row(flex, column, center, center);
+        position: relative; // Додали для позиціонування псевдоелементів
+        border: 3px solid transparent;
+        border-radius: 10px;
+        transition: 1s;
+        text-transform: capitalize;
+        text-align: center;
+        vertical-align: baseline;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            border: 3px solid transparent;
+            width: 0;
+            height: 0;
+            border-radius: 7px;
+        }
+
+        // Додали анімацію для лівого та нижнього бордерів
+        &:hover::after {
+            border-left-color: #b5d8f7;
+            border-bottom-color: #b5d8f7;
+            transition: border-color 0s ease-out 0.12s, width 0.15s ease-out 0.15s, height 0.25s ease-out 0.25s;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover::before {
+            top: 0;
+            left: 0;
+            border-top-color: #b5d8f7;
+            border-right-color: #b5d8f7;
+            transition: width 0.1s ease-out, height 0.1s ease-out 0.1s;
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+        }
+
+        img {
+            @include box(40px, 40px);
+        }
+    }
+
+   
+
+    .basket {
+        @include box(10%, 100%);
+        @include flex-row(flex, row, center, center);
+        margin-left: 190px;
+        background-color: $base-color;
+
+        &:hover {
+            cursor: pointer;
+
+        }
+
+        .basket-img {
+            position: relative;
+            margin-right: 10px;
+
+            img {
+                @include box(57px, 57px);
+            }
+
+            .countElement {
+                position: absolute;
+                @include box(30px, 30px);
+                right: -10px;
+                border-radius: 20px;
+                text-align: center;
+                line-height: 30px;
+                background-color: white;
+            }
+
+        }
+
+        .pSum {
+            @include text(20px, sans-serif, normal);
+            padding: 5px 20px;
+        }
+    }
+}

@@ -1,0 +1,164 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins";
+@import "../../shared/styles/variables";
+
+.container {
+    width: 80%;
+    margin: auto;
+
+    #name {
+        @include box(220px, 50px);
+        @include text(55px, sans-serif, bold);
+        margin: 50px auto;
+        text-align: center;
+        border-top: 6px solid $base-color;
+
+    }
+
+    h2 {
+        @include text(45px, sans-serif, bold);
+        margin: 50px;
+    }
+
+    h3 {
+        @include text(35px, sans-serif, bold);
+
+    }
+
+    p {
+        @include text(30px, sans-serif, normal);
+        line-height: 40px;
+        text-align: justify;
+        margin: 50px;
+    }
+
+    #ulMain {
+
+        .liMain {
+            @include box(500px, 50px);
+            color: $base-color;
+            margin-left: 70px;
+            @include text(30px, sans-serif, normal);
+
+            span {
+                @include text(30px, sans-serif, normal);
+                color: black;
+            }
+        }
+    }
+
+    .block {
+        margin-top: 70px;
+        margin-bottom: 70px;
+        @include box(100%, 750px);
+        @include flex-row(flex, row, space-between, center);
+
+        img {
+            @include box(750px, 100%);
+            border-radius: 30px;
+        }
+
+        .info-block {
+            @include box(750px, 100%);
+            @include flex-row(flex, column, center, center);
+
+        }
+
+
+
+    }
+
+
+    .advantages {
+        @include box(100%, 350px);
+        @include flex-row(flex, row, space-between, center);
+
+        .item {
+            @include box(25%, 350px);
+            @include flex-row(flex, column, center, center);
+            border-right: 1px solid #5a5a5a;
+
+            .background {
+                @include box(130px, 130px);
+                @include flex-row(flex, row, center, center);
+                background-color: $base-color;
+                border-radius: 20px;
+                margin-bottom: 20px;
+
+                img {
+                    @include box(80px, 80px);
+                }
+            }
+
+            .advantageP {
+                @include box(80%, 170px);
+                @include text(25px, sans-serif, normal);
+                text-align: center;
+            }
+
+            .advantageh3 {
+                @include box(100%, 60px);
+                @include text(35px, sans-serif, bold);
+                text-align: center;
+
+            }
+        }
+
+    }
+
+    .questions {
+        @include box(80%, 600px);
+        margin: 100px auto;
+
+        .questions-item {
+            width: 100%;
+            min-height: 100px;
+            border-bottom: 1px solid #5a5a5a;
+
+            .questionP {
+                @include box(100%, 100px);
+                @include text(25px, sans-serif, bold);
+                line-height: 100px;
+                margin: 0;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .answerP {
+                @include text(25px, sans-serif, normal);
+                line-height: 30px;
+                margin: 0 0 20px 0;
+            }
+
+            #more,
+            #moreRev {
+                @include text(40px, sans-serif, normal);
+                line-height: 100px;
+                margin: -10px 10px 0 0;
+                transform: rotate(180deg);
+            }
+
+            #moreRev{
+                transform: rotate(0);
+                margin: 0 10px 0 0;
+            }
+
+            .ulQuestion {
+
+                padding-left: 40px;
+
+                .liQuestion {
+                    list-style-type: decimal-leading-zero;
+                    @include text(25px, sans-serif, normal);
+                    margin: 20px;
+                    padding-left: 10px;
+                }
+            }
+
+        }
+
+
+    }
+}
