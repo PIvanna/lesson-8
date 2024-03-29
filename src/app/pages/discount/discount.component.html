@@ -1,5 +1,13 @@
 <div class="container">
     <h1 id="name">Акції на суші</h1>
+    <div class="discount-wrapper">
+        <div class="discount" *ngFor="let discount of userDiscount">
+            <img [src] = "discount.imagePath" alt="" class="discount-img">
+            <div class="discountName">{{ discount.name }}</div>
+            <hr>
+            <button class="butMore">Дізнатися більше</button>
+        </div>
+    </div>
     <div class="text">
         <h1>Суші-акції у Львові</h1>
         <p>Мрієте смакувати суші, не переплачуючи? З Monosushi це можливо! Ми зібрали найвигідніші акційні суші у Львові

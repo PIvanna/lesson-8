@@ -2,12 +2,13 @@
 @import "../../shared/styles/mixins";
 @import "../../shared/styles/variables";
 
-.container{
+.container {
     width: 80%;
     margin: auto;
-    #name{
+
+    #name {
         @include box(350px, 50px);
-        @include text(55px, sans-serif,bold);
+        @include text(55px, sans-serif, bold);
         margin: 50px auto;
         text-align: center;
         border-top: 6px solid $base-color;
@@ -37,7 +38,6 @@
             line-height: 40px;
             color: $base-color;
             text-align: justify
-
         }
 
         ul li span {
@@ -49,6 +49,50 @@
         h2 {
             @include text(44px, sans-serif, bold);
             margin: 20px 0;
+        }
+    }
+
+    .discount-wrapper {
+        width: 100%;
+        min-height: 100px;
+        @include flex-row(flex, row, center, center);
+        flex-wrap: wrap;
+
+        .discount {
+            @include box(45%, 700px);
+            @include flex-row(flex, column, space-between, center);
+
+            margin: 20px;
+
+            .discount-img {
+                width: 100%;
+                border-radius: 30px;
+            }
+
+            .discountName {
+                @include box(100%, 70px);
+                margin-top: 40px;
+                margin-bottom: 40px;
+                @include text(30px, sans-serif, bold);
+                text-align: center;
+                line-height: 70px;
+            }
+
+            hr{
+                @include box(100%, 5px);
+                background-color: $base-color;
+                border: none;
+            }
+
+            .butMore{
+                @include box(40%, 70px);
+                margin: 30px auto;
+                border: none;
+                border-radius: 20px;
+                background-color: $base-color;
+                @include text(25px, sans-serif, bold);
+
+            }
         }
     }
 }

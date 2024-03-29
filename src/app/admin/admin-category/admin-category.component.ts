@@ -65,8 +65,8 @@ export class AdminCategoryComponent {
     if (this.editStatus) {
       this.categoryService.update(this.categoryForm.value, this.currentDiscountId).subscribe(() => {
         this.selectedFileName = "";
-        this.loadCategory();
         this.bShowForm = false;
+        this.loadCategory();
       })
     } else {
       this.categoryService.create(this.categoryForm.value).subscribe(() => {

@@ -68,5 +68,151 @@
       "path": "sousi",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sousi.svg?alt=media&token=d1454ce0-f48a-4dcc-9cce-4b37075d89e3"
     }
+  ],
+  "products": [
+    {
+      "id": "be14",
+      "category": {
+        "id": "360e",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+      },
+      "name": "Філадельфія з лососем",
+      "path": "filadelfiya-losos",
+      "description": " Риc, крем сир, огірок, лосось",
+      "weight": "280",
+      "price": "325",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=fce5329f-d855-4405-b424-25daca267b97",
+      "count": 1
+    },
+    {
+      "id": "6388",
+      "category": {
+        "id": "e4f8",
+        "name": "сети ",
+        "path": "setu",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=3c2d6fc1-931a-40f0-9992-d004926fd7d7"
+      },
+      "name": "Сет Філадельфія",
+      "path": "zapechenyj-set",
+      "description": " Філадельфія: з лососем / в кунжуті / з тунцем / з вугрем",
+      "weight": "1070",
+      "price": "1150",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fimgonline-com-ua-compressed-jknw6idh54664-scaled.jpg?alt=media&token=22fe8a4c-bf35-4719-85ef-6df8a1b180cd",
+      "count": null
+    },
+    {
+      "id": "6af5",
+      "category": {
+        "id": "5760",
+        "name": "напої",
+        "path": "drinks",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=ea73815d-0af7-427a-8131-294708995ce9"
+      },
+      "name": "Pepsi",
+      "path": "coca-cola",
+      "description": "Pepsi",
+      "weight": "0.33",
+      "price": "35",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fpepsicola.jpg.pagespeed.ce._GE3wDu348.jpg?alt=media&token=47104e3b-027c-4c4d-88a7-58f27e8e4acd",
+      "count": null
+    },
+    {
+      "id": "80c2",
+      "category": {
+        "id": "f70c",
+        "name": "соуси",
+        "path": "sousi",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sousi.svg?alt=media&token=d1454ce0-f48a-4dcc-9cce-4b37075d89e3"
+      },
+      "name": "Імбир",
+      "path": "imbyr",
+      "description": "Імбир",
+      "weight": "30",
+      "price": "20",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2F3333.png.pagespeed.ce.vQR20Z8Iaq.png?alt=media&token=e9e766a2-3c81-47de-bcc6-f27a709ac764",
+      "count": null
+    },
+    {
+      "id": "9cd2",
+      "category": {
+        "id": "360e",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+      },
+      "name": "Каліфорнія з крабом",
+      "path": "kaliforniya-z-krabom",
+      "description": " Рис, спайсі соус, авокадо, огірок, краб, кунжут",
+      "weight": "250",
+      "price": "260",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2F3.1-kaliforniya-z-krabom-v-kunzhuti.jpg.pagespeed.ce.bvIx-bv6N4.jpg?alt=media&token=a171d653-5b58-4038-9445-57785328a2d6",
+      "count": 1
+    },
+    {
+      "id": "0cce",
+      "category": {
+        "id": "360e",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+      },
+      "name": "Запечений сирний з креветкою",
+      "path": "zapechenyj-syrnyj-z-krevetkoyu",
+      "description": " Рис, крем сир, салат айсберг, креветка, кунжут, сирний соус, унагі соус",
+      "weight": "330",
+      "price": "345",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2F2.-zapechenyj-syrnyj-z-los.jpg.pagespeed.ce.ySjaJht9cw.jpg?alt=media&token=04d0e6cf-f5e5-4c41-a9c0-9d215f481252",
+      "count": 1
+    },
+    {
+      "id": "c4f7",
+      "category": {
+        "id": "360e",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+      },
+      "name": "Фелікс з лососем – 50%",
+      "path": "firmovi-feliks-z-lososem-50",
+      "description": "Рис, крем сир, авокадо, салат айсберг, кунжут, лосось, спайсі соус",
+      "weight": "300",
+      "price": "175",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2F5.-feliks-z-lososem.jpg.pagespeed.ce.Fc-9BjN-OS.jpg?alt=media&token=8d5268e2-1fb9-4a07-b2d0-adca7d31c0e0",
+      "count": 1
+    },
+    {
+      "id": "f85c",
+      "category": {
+        "id": "360e",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+      },
+      "name": "Макі з огірком",
+      "path": "maki-z-ogirkom",
+      "description": "Рис, норі, огірок",
+      "weight": "120",
+      "price": "90",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2F1.-maki-z-ogirkom.jpg.pagespeed.ce.aSC1IbLhO9.jpg?alt=media&token=e9fda4bd-fc16-4cd4-a617-7e9aed6ac54a",
+      "count": 1
+    },
+    {
+      "id": "d2a2",
+      "category": {
+        "id": "360e",
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+      },
+      "name": "Філадельфія солена карамель",
+      "path": "premium-solena-karamel",
+      "description": " Рис, крем сир, авокадо, обпалений лосось, унагі соус",
+      "weight": " 290",
+      "price": "375",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fimgonline-com-ua-compressed-ctdg7qdqhxv9g-scaled.jpg.pagespeed.ce.rTtqC8rpcp.jpg?alt=media&token=b3b965e6-ffec-4bd4-a104-b8e974cf40b5",
+      "count": 1
+    }
   ]
 }

@@ -14,16 +14,72 @@
     <div class="banner">
         <div class="banner-item">
             <img style="width: 180px; height: 180px;"
-                src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fmn-delivery-img.svg?alt=media&token=6a56e87a-e4de-456d-8794-0e07fc736175" alt="">
+                src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fmn-delivery-img.svg?alt=media&token=6a56e87a-e4de-456d-8794-0e07fc736175"
+                alt="">
             <button id="zoneDelivery" [routerLink]="[ '/delivery-payment' ]">Зона доставки</button>
         </div>
         <div class="banner-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fmono-supermen.svg?alt=media&token=dc3d108f-fd8a-40a5-b190-97600b5a9a71" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fmono-supermen.svg?alt=media&token=dc3d108f-fd8a-40a5-b190-97600b5a9a71"
+                alt="">
             <p class="description">Середній час доставки в зеленій зоні <b>00:43:00</b></p>
         </div>
         <div class="banner-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fmono-bonus.svg?alt=media&token=b41106cb-d031-4084-ab71-792ea0fa8fff" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fmono-bonus.svg?alt=media&token=b41106cb-d031-4084-ab71-792ea0fa8fff"
+                alt="">
             <p class="description">Наш графік роботи Працюємо з <b>11:00</b> до <b>22:30</b></p>
+        </div>
+    </div>
+
+    <div class="menu-roli">
+        <div class="menu-roli-punkts"  [ngClass]="{'menu-roli-punkts-active': selectedPathPart === null}" (click)="openAll()">
+            Всі
+        </div>
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'filadelfiya'}" (click)="openFiladelfiya()">
+            Роли Філадельфія
+        </div>
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'kaliforniya'}" (click)="openKaliforniya()">
+            Роли Каліфорнія
+        </div>
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'zapechenyj'}" (click) = "openZapechenyj()">
+            Запечені роли
+        </div>
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'firmovi'}" (click) = "openFirmovi()">
+            Фірмові суші
+        </div>
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'maki'}" (click) = "openMaki()">
+            Роли Макі
+        </div>
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'premium'}" (click) = "openPremium()">
+            Преміум Суші
+        </div>
+    </div>
+    <div class="menu-product">
+        <div style="min-width: 0; min-height: 0px;" *ngFor="let product of userProducts">
+            <div class="card" *ngIf="selectedPathPart === null || product.path.includes(selectedPathPart)">
+                <img [routerLink]="[ '/product/'+product.category.path, product.id ]" [src]="product.imagePath"
+                    class="img-top" [alt]="product.name">
+                <div>
+                    <h5 [routerLink]="[ '/product/'+product.category.path, product.id ]" class="card-title">{{
+                        product.name }}</h5>
+                    <div class="item-card">
+                        <p *ngIf="product.category.path === 'sousi' || product.category.path === 'drinks' ; else otherPath"
+                            class="card-text"></p>
+                        <ng-template #otherPath>
+                            <p class="card-text">{{ product.description }}</p>
+                        </ng-template>
+                        <h4 class="card-weight">{{ product.weight }} г</h4>
+                    </div>
+                    <div class="bottom-item">
+                        <h4 class="card-price">{{ product.price }} грн</h4>
+                        <div class="manageCount">
+                            <button type="button" class="btnMinus">-</button>
+                            <input class="countProduct" type="text" value="1" style="width: 40px;">
+                            <button type="button" class="btnAdd">+</button>
+                        </div>
+                        <a class="btnOrder">Замовити</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -83,6 +139,4 @@
             <button (click)="closeMoreBut()" id="closeMoreBut">Згорнути</button>
             <hr>
         </div>
-
     </div>
-</div>
