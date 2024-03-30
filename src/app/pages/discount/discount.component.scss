@@ -76,6 +76,11 @@
                 @include text(30px, sans-serif, bold);
                 text-align: center;
                 line-height: 70px;
+                transition: color 0.5s;
+
+                &:hover{
+                    color: $base-color;
+                }
             }
 
             hr{
@@ -87,10 +92,16 @@
             .butMore{
                 @include box(40%, 70px);
                 margin: 30px auto;
-                border: none;
+                border: 4px solid transparent;
                 border-radius: 20px;
                 background-color: $base-color;
                 @include text(25px, sans-serif, bold);
+                transition: background-color 0.5s, border 0.5s;
+
+                &:hover{
+                    background-color: white;
+                    border: 4px solid $base-color;
+                }
 
             }
         }

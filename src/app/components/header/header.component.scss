@@ -6,6 +6,7 @@
     @include box(100%, 120px);
     @include flex-row(flex, row, none, center);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 
     .logo {
         @include box(11%, 100%);
@@ -104,7 +105,7 @@
                     transform: rotate(45deg);
                     margin-left: 40px;
 
-                    &:hover{
+                    &:hover {
                         cursor: pointer;
                     }
 
@@ -125,6 +126,7 @@
                         text-align: left;
                         line-height: 50px;
                         padding-left: 10px;
+
                         &:hover {
                             cursor: pointer;
 
@@ -273,7 +275,7 @@
         }
     }
 
-   
+
 
     .basket {
         @include box(10%, 100%);
@@ -296,7 +298,7 @@
 
             .countElement {
                 position: absolute;
-                @include box(30px, 30px);
+                @include box(50px, 30px);
                 right: -10px;
                 border-radius: 20px;
                 text-align: center;
@@ -311,4 +313,155 @@
             padding: 5px 20px;
         }
     }
+
+    .basket-info {
+        width: 1150px;
+        min-height: 400px;
+        background-color: white;
+        position: absolute;
+        top: 120px;
+        right: 0;
+        max-height: 600px;
+        z-index: 4;
+        border-radius: 20px;
+
+        .basket-option {
+            @include box(100%, 200px);
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fbg-monosushi-logo.svg?alt=media&token=be357147-3cf8-41a9-b77d-b848fd893cc5');
+            background-color: $base-color;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            @include flex-row(flex, row, space-between, center);
+            padding-right: 50px;
+
+            .basket-option-price {
+                @include box(30%, 150px);
+                @include text(30px, sans-serif, bold);
+                line-height: 150px;
+                align-self: center;
+                text-align: start;
+                padding-left: 20px;
+            }
+
+            .orderBut {
+                @include box(35%, 85px);
+                border-radius: 20px;
+                background-color: white;
+                border: 4px solid transparent;
+                transition: background-color 0.5s, border 0.5s;
+                @include text(25px, sans-serif, bold);
+
+                &:hover {
+                    background-color: transparent;
+                    border: 4px solid white;
+
+                }
+            }
+        }
+
+        .basket-empty {
+            @include box(100%, 300px);
+            @include flex-row(flex, column, space-between, center);
+            padding: 20px;
+
+            .basket-empty-img {
+                width: 15%;
+            }
+
+            .basket-empty-p {
+                @include box(40%, 50px);
+                @include text(25px, sans-serif, bold);
+                text-align: center;
+            }
+
+            .goToMenu{
+                @include box(35%, 85px);
+                border-radius: 20px;
+                background-image: url('https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fbg-monosushi-logo.svg?alt=media&token=be357147-3cf8-41a9-b77d-b848fd893cc5');
+                background-color: $base-color;
+                border: 4px solid transparent;
+                transition: background-color 0.5s, border 0.5s;
+                @include text(25px, sans-serif, bold);
+
+                &:hover {
+                    background-color: white;
+                    border: 4px solid $base-color ;
+
+                }
+            }
+        }
+
+        .basket-wrapper {
+            width: 100%;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+
+            .basket-item {
+                width: 100%;
+                overflow-y: auto;
+                min-height: 200px;
+                border-top: 2px solid lightgray;
+                border-bottom: 2px solid lightgray;
+                @include flex-row(flex, row, space-between, center);
+                padding: 0 20px;
+
+
+                .basket-img {
+                    @include box(35%, 150px);
+                }
+
+                .basket-name {
+                    @include box(30%, 150px);
+                    @include text(18px, sans-serif, bold);
+                    line-height: 150px;
+                    align-self: center;
+                    text-align: start;
+                    padding-left: 20px;
+
+                }
+
+                .manageCount {
+                    @include flex-row(flex, row, center, center);
+                    align-items: center;
+                    border: 1px solid lightgray;
+                    border-radius: 20px;
+                    @include box(15%, 60px);
+                }
+
+                .btnMinus,
+                .btnAdd {
+                    @include box(25%, 60px);
+                    border: none;
+                    @include text(18px, sans-serif, bold);
+                    line-height: 60px;
+                    background-color: transparent;
+                }
+
+                .countProduct {
+                    @include box(25%, 60px);
+                    border: none;
+                    @include text(18px, sans-serif, bold);
+                    line-height: 60px;
+                    background-color: transparent;
+                    text-align: center;
+                }
+
+                .basket-price {
+                    @include box(10%, 150px);
+                    @include text(18px, sans-serif, bold);
+                    line-height: 150px;
+                    align-self: center;
+                    text-align: start;
+                    padding-left: 20px;
+                }
+
+                .basket-delete {
+                    width: 5%;
+                }
+            }
+        }
+    }
+
+
 }

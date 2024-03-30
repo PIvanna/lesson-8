@@ -17,7 +17,7 @@ export class DiscountService {
     return this.http.get<IDiscountResponse[]>(this.api.discounts);
   }
 
-  getOne(id: number): Observable<IDiscountResponse> {
+  getOne(id: number | string | null): Observable<IDiscountResponse> {
     return this.http.get<IDiscountResponse>(`${this.api.discounts}/${id}`);
   }
 

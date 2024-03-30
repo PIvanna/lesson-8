@@ -136,47 +136,17 @@
         flex-wrap: wrap;
         
         .card {
-            @include box(500px, 600px);
+            @include box(500px, 650px);
             @include flex-row(flex, column, space-between, center);
             border: 4px solid transparent;
             position: relative;
+            transition: border 0.5s;
 
             &:hover {
                 cursor: pointer;
-
+                border: 4px solid $base-color;
             }
 
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                z-index: 2;
-                border: 3px solid transparent;
-                width: 0;
-                height: 0;
-                border-radius: 7px;
-            }
-
-            // Додали анімацію для лівого та нижнього бордерів
-            &:hover::after {
-                border-left-color: #b5d8f7;
-                border-bottom-color: #b5d8f7;
-                transition: border-color 0s ease-out 0.12s, width 0.15s ease-out 0.15s, height 0.25s ease-out 0.25s;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-            }
-
-            &:hover::before {
-                top: 0;
-                left: 0;
-                border-top-color: #b5d8f7;
-                border-right-color: #b5d8f7;
-                transition: width 0.1s ease-out, height 0.1s ease-out 0.1s;
-                width: 100%;
-                height: 100%;
-            }
 
             .img-top {
                 width: 405px;
@@ -189,6 +159,10 @@
                 @include text(25px, sans-serif, bold);
                 text-align: center;
                 margin: 20px auto 0;
+                transition: color 0.5s;
+                &:hover{
+                    color: $base-color;
+                }
             }
 
             .item-card {

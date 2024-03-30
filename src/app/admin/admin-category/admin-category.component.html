@@ -1,7 +1,7 @@
 <div class="container">
     <div class="add">
         <button type="button" [ngClass]="{'active-but': bShowForm}" (click)="showForm()" class="butAdd">Додати
-            акцію</button>
+            категорію</button>
         <form [style.display]="bShowForm ? 'block' : 'none'" [formGroup]="categoryForm" (ngSubmit)="addCategory()">
             <div class="first-part">
                 <input formControlName="name" class="input-first-part" [placeholder]="placeholderName" type="text">

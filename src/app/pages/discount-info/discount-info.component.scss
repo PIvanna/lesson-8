@@ -1,0 +1,35 @@
+@import "../../shared/styles/base";
+@import "../../shared/styles/mixins";
+@import "../../shared/styles/variables";
+
+.container {
+    width: 60%;
+    margin: auto;
+
+    .banner {
+        margin: 100px;
+        @include box(100%, 200px);
+        border-radius: 20px;
+        @include flex-row(flex, row, center, center);
+        background-color: $base-color;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fbg-monosushi-logo.svg?alt=media&token=be357147-3cf8-41a9-b77d-b848fd893cc5');
+
+        .discount-name {
+
+            border-top: 6px solid black;
+            @include box(40%, 100px);
+            text-align: center;
+            @include text(30px, sans-serif, bold);
+            line-height: 100px;
+        }
+
+
+    }
+
+    .discount-text {
+
+        @include text(25px, sans-serif, normal);
+        margin: 20px auto;
+    }
+
+}

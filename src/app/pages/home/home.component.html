@@ -55,8 +55,8 @@
     </div>
     <div class="menu-product">
         <div style="min-width: 0; min-height: 0px;" *ngFor="let product of userProducts">
-            <div class="card" *ngIf="selectedPathPart === null || product.path.includes(selectedPathPart)">
-                <img [routerLink]="[ '/product/'+product.category.path, product.id ]" [src]="product.imagePath"
+            <div  class="card" *ngIf="selectedPathPart === null || product.path.includes(selectedPathPart)">
+                <img  [routerLink]="[ '/product/'+product.category.path, product.id ]" [src]="product.imagePath"
                     class="img-top" [alt]="product.name">
                 <div>
                     <h5 [routerLink]="[ '/product/'+product.category.path, product.id ]" class="card-title">{{
@@ -70,13 +70,13 @@
                         <h4 class="card-weight">{{ product.weight }} г</h4>
                     </div>
                     <div class="bottom-item">
-                        <h4 class="card-price">{{ product.price }} грн</h4>
+                        <h4 class="card-price">{{ product.price * product.count}} грн</h4>
                         <div class="manageCount">
-                            <button type="button" class="btnMinus">-</button>
-                            <input class="countProduct" type="text" value="1" style="width: 40px;">
-                            <button type="button" class="btnAdd">+</button>
+                            <button type="button" (click) = "productCount(product, false)" class="btnMinus">-</button>
+                            <input class="countProduct" type="text" readonly [value]="product.count"  style="width: 40px;">
+                            <button type="button" (click) = "productCount(product, true)" class="btnAdd">+</button>
                         </div>
-                        <a class="btnOrder">Замовити</a>
+                        <button class="btnOrder" type="button" (click)="addToBasket(product)">Замовити</button>
                     </div>
                 </div>
             </div>

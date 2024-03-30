@@ -12,5 +12,6 @@ export interface IProductRequest {
 }
 
 export interface IProductResponse extends IProductRequest {
+    productService: any;
     id: number;
 }

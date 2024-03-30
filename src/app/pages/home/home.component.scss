@@ -216,61 +216,34 @@
     }
 
 
-    .menu-roli-punkts-active{
+    .menu-roli-punkts-active {
         border-top: 5px solid $base-color !important;
         border-bottom: none !important;
         border-left: none !important;
         border-right: none !important;
     }
 
-    .menu-product{
+    .menu-product {
         width: 100%;
         min-height: 100px;
         @include flex-row(flex, row, flex-start, center);
         margin: 100px auto;
         flex-wrap: wrap;
-        
+
         .card {
             @include box(500px, 500px);
             @include flex-row(flex, column, space-between, center);
             border: 4px solid transparent;
             position: relative;
+            transition: border 0.5s;
+            border-radius: 10px;
 
             &:hover {
                 cursor: pointer;
+                border: 4px solid $base-color;
             }
 
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                z-index: 2;
-                border: 3px solid transparent;
-                width: 0;
-                height: 0;
-                border-radius: 7px;
-            }
 
-            // Додали анімацію для лівого та нижнього бордерів
-            &:hover::after {
-                border-left-color: #b5d8f7;
-                border-bottom-color: #b5d8f7;
-                transition: border-color 0s ease-out 0.12s, width 0.15s ease-out 0.15s, height 0.25s ease-out 0.25s;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-            }
-
-            &:hover::before {
-                top: 0;
-                left: 0;
-                border-top-color: #b5d8f7;
-                border-right-color: #b5d8f7;
-                transition: width 0.1s ease-out, height 0.1s ease-out 0.1s;
-                width: 100%;
-                height: 100%;
-            }
 
             .img-top {
                 width: 405px;
@@ -283,12 +256,19 @@
                 @include text(25px, sans-serif, bold);
                 text-align: center;
                 margin: 20px auto 0;
+                transition: color 0.5s;
+
+
+                &:hover {
+                    color: $base-color;
+                }
             }
 
             .item-card {
                 @include box(405px, 60px);
                 @include flex-row(flex, row, space-between, center);
                 margin: auto;
+
                 .card-text {
                     @include box(70%, 60px);
                     line-height: 35px;
@@ -307,6 +287,7 @@
 
                 @include flex-row(flex, row, space-between, center);
                 margin: auto;
+
                 .card-price {
                     @include box(25%, 60px);
                     line-height: 35px;
@@ -323,24 +304,24 @@
                 }
 
                 .btnMinus,
-                .btnAdd{
+                .btnAdd {
                     @include box(25%, 60px);
-                    border:none;
+                    border: none;
                     @include text(18px, sans-serif, bold);
                     line-height: 60px;
                     background-color: transparent;
                 }
 
-                .countProduct{
+                .countProduct {
                     @include box(25%, 60px);
-                    border:none;
+                    border: none;
                     @include text(18px, sans-serif, bold);
                     line-height: 60px;
                     background-color: transparent;
                     text-align: center;
                 }
 
-                .btnOrder{
+                .btnOrder {
                     @include box(30%, 60px);
                     line-height: 35px;
                     @include text(18px, sans-serif, bold);

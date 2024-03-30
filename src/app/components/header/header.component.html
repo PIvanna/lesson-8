@@ -1,26 +1,32 @@
 <div class="container">
     <div class="logo" [routerLink]="[ '' ]" routerLinkActive="route-active">
-        <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Flogo.svg?alt=media&token=bbe800cf-da84-4d9b-9fd9-2722a7a14064" alt="">
+        <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Flogo.svg?alt=media&token=bbe800cf-da84-4d9b-9fd9-2722a7a14064"
+            alt="">
     </div>
     <div class="menu">
         <div class="item" [routerLink]="[ '/discount' ]" routerLinkActive="route-active">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-gift.svg?alt=media&token=ee7541e3-3b6b-4ac1-8b96-32d26788237c" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-gift.svg?alt=media&token=ee7541e3-3b6b-4ac1-8b96-32d26788237c"
+                alt="">
             <p class="nameOfCategory">Акції</p>
         </div>
         <div class="item" [routerLink]="[ '/product/roli' ]" routerLinkActive="route-active">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=7e11c8a7-0b1d-4fe9-9257-e281ca06c2ca"
+                alt="">
             <p class="nameOfCategory">Роли</p>
         </div>
         <div class="item" [routerLink]="[ '/product/setu' ]" routerLinkActive="route-active">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=3c2d6fc1-931a-40f0-9992-d004926fd7d7" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=3c2d6fc1-931a-40f0-9992-d004926fd7d7"
+                alt="">
             <p class="nameOfCategory">Сети</p>
         </div>
         <div class="item" [routerLink]="[ '/product/drinks' ]" routerLinkActive="route-active">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=ea73815d-0af7-427a-8131-294708995ce9" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=ea73815d-0af7-427a-8131-294708995ce9"
+                alt="">
             <p class="nameOfCategory">Напої</p>
         </div>
         <div class="item" [routerLink]="[ '/product/sousi' ]" routerLinkActive="route-active">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sousi.svg?alt=media&token=d1454ce0-f48a-4dcc-9cce-4b37075d89e3" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fnav-img-sousi.svg?alt=media&token=d1454ce0-f48a-4dcc-9cce-4b37075d89e3"
+                alt="">
             <p class="nameOfCategory">Соуси</p>
         </div>
         <div (click)="openMenu()" class="item">
@@ -30,11 +36,11 @@
         </div>
         <div *ngIf="menuOpen" class="menuSmall">
             <div id="close">
-                <p (click) = "closeMenu()" id="closeSpan">+</p>
+                <p (click)="closeMenu()" id="closeSpan">+</p>
                 <ul>
-                    <li (click) = "closeMenu()" [routerLink]="[ '/delivery-payment' ]">Доставка та оплата</li>
-                    <li (click) = "closeMenu()" [routerLink]="[ '/about' ]">Про нас</li>
-                    <li (click) = "closeMenu()" [routerLink]="[ '/discount' ]">Акції на суші</li>
+                    <li (click)="closeMenu()" [routerLink]="[ '/delivery-payment' ]">Доставка та оплата</li>
+                    <li (click)="closeMenu()" [routerLink]="[ '/about' ]">Про нас</li>
+                    <li (click)="closeMenu()" [routerLink]="[ '/discount' ]">Акції на суші</li>
                 </ul>
             </div>
 
@@ -42,7 +48,8 @@
     </div>
 
     <div class="call">
-        <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fphone.svg?alt=media&token=4d348a8d-abf2-416d-8920-e1e1cb930164" alt="">
+        <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fphone.svg?alt=media&token=4d348a8d-abf2-416d-8920-e1e1cb930164"
+            alt="">
         <p class="callText">Ми зателефонуємо</p>
     </div>
 
@@ -51,17 +58,47 @@
         <p class="table">Працюємо з <b>11:00</b> до <b>22:30</b></p>
     </div>
 
-    <div class="user" [routerLink]="[ '/admin' ]"  >
-        <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fuser.svg?alt=media&token=44574384-593f-4b47-b04b-bad9ac0186b7" alt="">
+    <div class="user" [routerLink]="[ '/admin' ]">
+        <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fuser.svg?alt=media&token=44574384-593f-4b47-b04b-bad9ac0186b7"
+            alt="">
     </div>
 
-    <div class="basket">
+    <div class="basket" (click) = "openBasket()">
         <div class="basket-img">
-            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fbasket.svg?alt=media&token=b207a93a-c2ea-4dc6-88de-f7ddff1d6cf9" alt="">
-            <span class="countElement">0</span>
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fbasket.svg?alt=media&token=b207a93a-c2ea-4dc6-88de-f7ddff1d6cf9"
+                alt="">
+            <span class="countElement">{{ total }}</span>
         </div>
         <p class="pSum"><b>0</b> грн</p>
 
     </div>
+    <div class="basket-info" *ngIf = "basketOpen">
+        <div class="basket-wrapper" *ngIf = "!basketEmpty">
+            <div class="basket-item" *ngFor="let product of basket">
+                <img class="basket-img" [src]="product.imagePath" alt="">
+                <p class="basket-name">{{ product.name}}</p>
+                <div class="manageCount">
+                    <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>
+                    <input class="countProduct" type="text"
+                        [value]="product.count === null || product.count === 0 ? 1 : product.count" readonly
+                        style="width: 40px;">
+                    <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
+                </div>
+                <p class="basket-price">{{ product.count === null ? product.price : product.price * product.count }}  грн</p>
+                <img class="basket-delete" (click) = "delete(product)"
+                    src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Ffree-trash-icon-347-thumb.png?alt=media&token=bfb5a522-b042-42e4-b487-0542782b5167"
+                    alt="" class="basket-delete">
+            </div>
+        </div>
+        <div class="basket-empty" *ngIf = "basketEmpty">
+            <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fcart-empty-img.svg?alt=media&token=539f0fbe-4658-4c86-a49b-7c899c72feb8" alt="" class="basket-empty-img">
+            <p class="basket-empty-p">Кошик порожній</p>
+            <button class="goToMenu"  [routerLink]="[ '' ]" (click) = closeBasket()> Перейти до каталогу</button>
+        </div>
+        <div class="basket-option">
+            <p class="basket-option-price">Сума: {{ total }} грн</p>
+            <button type="button" class="orderBut">Оформити замовлення</button>
+        </div>
 
+    </div>
 </div>

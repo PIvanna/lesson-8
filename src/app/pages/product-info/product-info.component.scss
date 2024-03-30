@@ -1,0 +1,115 @@
+@import "../../shared/styles/_base.scss";
+@import "../../shared/styles/_mixins.scss";
+@import "../../shared/styles/_variables.scss";
+
+
+.container {
+    width: 60%;
+    min-height: 100px;
+    margin: 100px auto;
+
+    .card {
+        @include box(100%, 380px);
+        @include flex-row(flex, row, space-between, center);
+
+
+
+
+        .img-top {
+            width: 30%;
+            margin: auto;
+            display: block;
+        }
+
+        .card-wrapper {
+            @include box(100%, 100%);
+            @include flex-row(flex, column, space-around, center);
+
+
+            .card-title {
+                @include box(100%, 100px);
+                @include text(30px, sans-serif, bold);
+                text-align: left;
+                margin: 20px auto 0;
+                transition: color 0.5s;
+
+                &:hover {
+                    color: $base-color;
+                }
+            }
+
+            .item-card {
+                @include box(100%, 60px);
+                margin: auto;
+
+                .baseColor{
+                    @include text(20px, sans-serif, bold);
+                    color: $base-color;
+                }
+
+                .card-text {
+                    @include box(70%, 60px);
+                    line-height: 35px;
+                    @include text(20px, sans-serif, normal);
+                }
+
+                .card-weight {
+                    @include box(20%, 60px);
+                    line-height: 35px;
+                    @include text(20px, sans-serif, normal);
+                }
+            }
+
+            .bottom-item {
+                @include box(100%, 130px);
+
+                @include flex-row(flex, row, space-between, center);
+                margin: auto;
+
+                .card-price {
+                    @include box(20%, 60px);
+                    line-height: 35px;
+                    @include text(18px, sans-serif, bold);
+                    line-height: 60px;
+                }
+
+                .manageCount {
+                    @include flex-row(flex, row, center, center);
+                    align-items: center;
+                    border: 1px solid lightgray;
+                    border-radius: 20px;
+                    @include box(30%, 60px);
+                }
+
+                .btnMinus,
+                .btnAdd {
+                    @include box(25%, 60px);
+                    border: none;
+                    @include text(18px, sans-serif, bold);
+                    line-height: 60px;
+                    background-color: transparent;
+                }
+
+                .countProduct {
+                    @include box(25%, 60px);
+                    border: none;
+                    @include text(18px, sans-serif, bold);
+                    line-height: 60px;
+                    background-color: transparent;
+                    text-align: center;
+                }
+
+                .btnOrder {
+                    @include box(30%, 60px);
+                    line-height: 35px;
+                    @include text(18px, sans-serif, bold);
+                    line-height: 60px;
+                    border: none;
+                    background-color: $base-color;
+                    border-radius: 20px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

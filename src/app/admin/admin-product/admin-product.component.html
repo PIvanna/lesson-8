@@ -1,7 +1,7 @@
 <div class="container">
     <div class="add">
         <button type="button" [ngClass]="{'active-but': bShowForm}" (click)="showForm()" class="butAdd">Додати
-            акцію</button>
+            продукт</button>
         <form [style.display]="bShowForm ? 'block' : 'none'" [formGroup]="productForm" (ngSubmit)="addProduct()">
             <select formControlName="category" class="form-select">
                 <option [ngValue]="category" *ngFor="let category of adminCategories">{{category.name}}
