@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router, RouterEvent, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
 import { OrderService } from 'src/app/shared/services/order/order.service';
@@ -10,7 +10,8 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent{
+  private eventSubscription!: Subscription;
   public offsetX = 0;
   public itemWidth!: number;
   public activeSlideIndex: number = 0;
@@ -28,21 +29,26 @@ export class HomeComponent {
   public lastPoint = true;
   public showMore = false;
   public userProducts: Array<IProductResponse> = [];
-  private eventSubscription!: Subscription;
+  public isActive = false;
+
+
 
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private orderService: OrderService,
-    private router: Router
+    private router: Router,
   ) {
     this.setItemWidth();
     this.eventSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.loadProducts();
       }
-    })
+    });
+
   }
+
+  
 
   loadProducts(): void {
     const categoryName = 'roli';
@@ -85,7 +91,7 @@ export class HomeComponent {
   }
 
   openFiladelfiya() {
-    this.selectedPathPart = 'filadelfiya'; 
+    this.selectedPathPart = 'filadelfiya';
   }
 
   openKaliforniya() {
@@ -93,34 +99,34 @@ export class HomeComponent {
 
   }
 
-  openZapechenyj(){
+  openZapechenyj() {
     this.selectedPathPart = 'zapechenyj';
   }
 
-  openFirmovi(){
+  openFirmovi() {
     this.selectedPathPart = 'firmovi';
   }
 
-  openMaki(){
+  openMaki() {
     this.selectedPathPart = 'maki';
   }
-  openPremium(){
+  openPremium() {
     this.selectedPathPart = 'premium';
   }
 
   productCount(product: IProductResponse, value: boolean): void {
-    if(value){
+    if (value) {
       ++product.count;
-    } else if(!value && product.count > 1){
+    } else if (!value && product.count > 1) {
       --product.count;
     }
   }
 
   addToBasket(product: IProductResponse): void {
     let basket: Array<IProductResponse> = [];
-    if(localStorage.length > 0 && localStorage.getItem('basket')){
+    if (localStorage.length > 0 && localStorage.getItem('basket')) {
       basket = JSON.parse(localStorage.getItem('basket') as string);
-      if(basket.some(prod => prod.id === product.id)){
+      if (basket.some(prod => prod.id === product.id)) {
         const index = basket.findIndex(prod => prod.id === product.id);
         basket[index].count += product.count;
       } else {

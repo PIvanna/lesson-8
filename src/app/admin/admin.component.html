@@ -4,6 +4,7 @@
         <div  [routerLink]="[ '/admin/category' ]" routerLinkActive="route-active-admin" class="punkts-menu">Категорії</div>
         <div  [routerLink]="[ '/admin/product' ]" routerLinkActive="route-active-admin" class="punkts-menu">Товари</div>
         <div class="punkts-menu">Замовлення</div>
+        <div class="punkts-menu" (click)="logout()">Вихід</div>
         <div style="border-right: none;" class="punkts-menu"></div>
     </div>
     <div class="cont">

@@ -19,6 +19,61 @@
         }
     }
 
+    .menu-user{
+        @include box(330px, 375px);
+        position: absolute;
+        background-color: white;
+        z-index: 2;
+        top: -32px;
+        left: -31px;
+        padding-top: 90px;
+        padding-left: 50px;
+        @include flex-row(flex, column, space-around, start);
+        border: 3px solid $base-color;
+
+        .menu-user-punkt{
+            @include text(18px, sans-serif, bold);
+            @include box(80%, 40px);
+            line-height: 40px;
+            padding-left: 5px;
+            text-align: start;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                border: 3px solid transparent;
+                width: 0;
+                height: 0;
+                border-radius: 7px;
+            }
+    
+            // Додали анімацію для лівого та нижнього бордерів
+            &:hover::after {
+                border-left-color: #b5d8f7;
+                border-bottom-color: #b5d8f7;
+                transition: border-color 0s ease-out 0.12s, width 0.15s ease-out 0.15s, height 0.25s ease-out 0.25s;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+            }
+    
+            &:hover::before {
+                top: 0;
+                left: 0;
+                border-top-color: #b5d8f7;
+                border-right-color: #b5d8f7;
+                transition: width 0.1s ease-out, height 0.1s ease-out 0.1s;
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+    }
+
     .menu {
         @include box(35%, 100%);
         @include flex-row(flex, row, space-around, center);
@@ -98,18 +153,7 @@
                 @include box(300px, 300px);
                 @include flex-row(flex, column, start, start);
 
-                #closeSpan {
-                    @include text(100px, sans-serif, normal);
-                    margin-top: 0px;
-                    text-align: center;
-                    transform: rotate(45deg);
-                    margin-left: 40px;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-
-                }
+                
 
                 ul {
                     @include box(300px, 180px);
@@ -463,5 +507,20 @@
         }
     }
 
+    #closeSpan {
+        @include text(100px, sans-serif, normal);
+        margin-top: 0px;
+        text-align: center;
+        transform: rotate(45deg);
+        margin-left: 40px;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+       
+
+    }
 
 }

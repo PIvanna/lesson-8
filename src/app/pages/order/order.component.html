@@ -1,0 +1,164 @@
+<div class="container">
+    <h1 id="title">Доставка та оплата</h1>
+    <form id="formPersonal" [formGroup]="orderForm" (ngSubmit)="send()">
+        <div class="group">
+            <div style="width: 45%;">
+                <input formControlName="promocod" class="input-small" name="promocod" placeholder="Введіть промокод"
+                    type="promocod" id="promocod">
+                <button type="button" id="butApply">Застосувати</button>
+            </div>
+            <div style="width: 50%;">
+                <p class="checkSelect" (click)="openOption()">{{ option }}</p>
+                <ul *ngIf="openOptionMenu" class="ulOption">
+                    <li class="checkOption" (click)="select('Обрати акцію')">Обрати акцію</li>
+                    <li class="checkOption" (click)="select(discount.title)" *ngFor="let discount of userDiscount">{{
+                        discount.title }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="punkts-menu">
+            <div class="num">1</div>
+            <div class="label">Оберіть кількість приладів</div>
+        </div>
+        <div class="group">
+            <div style="width: 47%;">
+                <p class="checkSelect" (click)="openOptionHousehold()">{{ householdCnt }}</p>
+                <ul *ngIf="openOptionMenuHousehold" class="ulOption">
+                    <li class="checkOption" (click)="selectHousehold('1')">1</li>
+                    <li class="checkOption" (click)="selectHousehold(hold)" *ngFor="let hold of household">{{ hold }}
+                    </li>
+                </ul>
+            </div>
+            <div style="width: 47%">
+                <p class="checkSelect" (click)="openOptionHolders()">{{ holdersOut }}</p>
+                <ul *ngIf="openOptionMenuHolders" class="ulOption">
+                    <li class="checkOption">Навчальні тримачі</li>
+                    <li class="checkOption" (click)="selectHolders(hold)" *ngFor="let hold of holders">{{ hold }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="punkts-menu">
+            <div class="num">2</div>
+            <div class="label">Спосіб оплати</div>
+        </div>
+        <div class="group" style="justify-content: flex-start;">
+            <label>
+                <input type="radio" formControlName="payment" name="radio" checked value="cash" name="payment">
+                <span class="radio-container"></span>
+                <span class="radio-text">Оплата готівкою</span>
+
+            </label>
+            <label>
+                <input type="radio" formControlName="payment" name="radio" value="notouch" name="payment">
+                <span class="radio-container"></span>
+                <span class="radio-text">Безготівкова оплата</span>
+
+            </label>
+        </div>
+        <div class="punkts-menu">
+            <div class="num">3</div>
+            <div class="label">Спосіб доставки</div>
+        </div>
+        <div class="group" style="justify-content: flex-start;">
+            <label>
+                <input type="radio" formControlName="delivery" name="radio" value="delivery" name="delivery">
+                <span class="radio-container"></span>
+                <span class="radio-text">Доставка</span>
+            </label>
+            <label>
+                <input type="radio" formControlName="delivery" name="radio" value="alone" name="delivery">
+                <span class="radio-container"></span>
+                <span class="radio-text">Самовивіз</span>
+            </label>
+            <label>
+                <input type="checkbox" formControlName="inadvance" name="checkbox" value="inadvance">
+                <span class="radio-container"></span>
+                <span class="radio-text">Зазделегідь</span>
+            </label>
+        </div>
+
+        <div class="group">
+            <input style="width: 48%; border-radius: 20px;" formControlName="name" class="input-small"
+                placeholder="Ваше ім'я*" name="name" type="text">
+            <input style="width: 48%; border-radius: 20px;" formControlName="phone" class="input-small"
+                placeholder="Телефон*" name="phone" type="text">
+        </div>
+        <div class="group" *ngIf="inadvanceValue">
+            <input style="width: 48%; border-radius: 20px;" formControlName="data" class="input-small"
+                placeholder="Дата доставки*" name="data" type="text">
+            <input style="width: 48%; border-radius: 20px;" formControlName="time" class="input-small"
+                placeholder="Часовий інтервал*" name="time" type="text">
+        </div>
+        <div class="group" *ngIf="deliveryValue == 'delivery'">
+            <input style="width: 48%; border-radius: 20px;" formControlName="street" class="input-small"
+                placeholder="Вулиця*" name="street" type="text">
+            <input style="width: 48%; border-radius: 20px;" formControlName="home" class="input-small"
+                placeholder="Номер будинку*" name="home" type="text">
+        </div>
+        <div class="group" *ngIf="deliveryValue == 'delivery'">
+            <input style="width: 48%; border-radius: 20px;" formControlName="entrance" class="input-small"
+                placeholder="Під'їзд*" name="entrance" type="text">
+            <input style="width: 48%; border-radius: 20px;" formControlName="apartment" class="input-small"
+                placeholder="Квартир*" name="apartment" type="text">
+        </div>
+        <div class="group" *ngIf="deliveryValue == 'delivery'">
+            <input style="width: 48%; border-radius: 20px;" formControlName="level" class="input-small"
+                placeholder="Поверх*" name="level" type="text">
+            <input style="width: 48%; border-radius: 20px;" formControlName="doorphone" class="input-small"
+                placeholder="Домофон*" name="doorphone" type="text">
+        </div>
+        <div class="group" style="position: relative;" *ngIf="deliveryValue == 'alone'">
+            <input type="text" formControlName="address" style="width: 0; height: 0;" [value]="address">
+            <p class="checkSelect" (click)="openOptionAddress()">{{ address !== null ? address : 'Оберіть адресу
+                самовивозу' }}</p>
+            <ul *ngIf="openOptionMenuAddress" style="top: 65px;" class="ulOption">
+                <li class="checkOption" (click)="selectAdress('Чорновола 95')">Чорновола 95</li>
+                <li class="checkOption" (click)="selectAdress('Володимира Великого 10В')">Володимира Великого 10В</li>
+                <li class="checkOption" (click)="selectAdress('Зелена 204Б')">Зелена 204Б</li>
+            </ul>
+        </div>
+        <hr style="width: 80%; height: 10px; border-radius: 2px; border:3px solid  #b5d8f7; margin: auto; ">
+        <div style="width: 80%; min-height: 40px; margin: 20px auto;">
+            <label>
+                <input type="checkbox" formControlName="shouldPhone" name="checkbox" value="shouldPhone">
+                <span class="radio-container"></span>
+                <span class="radio-text">Зателефонуйте мені для уточнення деталей</span>
+            </label>
+        </div>
+        <div style="width: 80%; margin: 20px auto; display: flex; flex-direction: column;">
+            <label>
+                <input type="checkbox" formControlName="coment" name="checkbox" value="coment">
+                <span class="radio-container"></span>
+                <span class="radio-text">Додати коментар</span>
+            </label>
+            <textarea class="textarea" placeholder="Ваш коментар" *ngIf="orderForm.get('coment')?.value"></textarea>
+        </div>
+        
+        <div style="width: 80%; margin: 20px auto; display: flex; flex-direction: column;">
+            <label>
+                <input type="checkbox" formControlName="comentKitchen" name="checkbox" value="comentKitchen">
+                <span class="radio-container"></span>
+                <span class="radio-text">Додати коментар для кухні</span>
+            </label>
+            <textarea class="textarea" placeholder="Ваш коментар до кухні" *ngIf="orderForm.get('comentKitchen')?.value"></textarea>
+        </div>
+        
+        <div class="wrapper-map">
+            <iframe id="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2571.8914045160545!2d24.014141676023794!3d49.8632845294677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473addae674cfd1d%3A0xa8962158c408d4fc!2z0L_RgNC-0YHQv9C10LrRgiDQkifRj9GH0LXRgdC70LDQstCwINCn0L7RgNC90L7QstC-0LvQsCwgOTUsINCb0YzQstGW0LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwgNzkwMDA!5e0!3m2!1suk!2sua!4v1711072774076!5m2!1suk!2sua"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div *ngIf="orderForm.invalid">
+            <p class="alertData" *ngIf="orderForm.get('name')?.errors?.['required']">Введіть ваше ім'я</p>
+            <p class="alertData" *ngIf="orderForm.get('phone')?.errors?.['required']">Введіть ваш номер телефону</p>
+            <p class="alertData" *ngIf="orderForm.get('street')?.errors?.['required'] &&
+                 orderForm.get('home')?.errors?.['required']">
+                Введіть вашу адресу та номер будинку</p>
+            <p class="alertData" *ngIf="orderForm.get('address')?.errors?.['required']">Оберіть адресу самовивозу</p>
+        </div>
+        <div class="group">
+            <button [disabled]="orderForm.invalid" id="butLogin" type="submit">Оформити замовлення</button>
+        </div>
+    </form>
+</div>

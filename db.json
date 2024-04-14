@@ -212,5 +212,24 @@
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fimgonline-com-ua-compressed-ctdg7qdqhxv9g-scaled.jpg.pagespeed.ce.rTtqC8rpcp.jpg?alt=media&token=b3b965e6-ffec-4bd4-a104-b8e974cf40b5",
       "count": 1
     }
+  ],
+  "auth": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "qwerty123",
+      "name": "Petro",
+      "surname": "Petriv",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "email": "user@gmail.com",
+      "password": "qwerty123",
+      "name": "Pavlo",
+      "surname": "Pavliv",
+      "number": "+380960458769",
+      "role": "USER"
+    }
   ]
 }

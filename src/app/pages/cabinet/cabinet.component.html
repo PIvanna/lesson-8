@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="menu">
+        <div [routerLink]="[ '/cabinet/user-info' ]" routerLinkActive="route-active-admin" class="punkts-menu">Особисті дані</div>
+        <div  routerLinkActive="route-active-admin" class="punkts-menu">Історія замовлень</div>
+        <div   routerLinkActive="route-active-admin" class="punkts-menu">Зміна паролю</div>
+        <div style="border-right: none;" class="punkts-menu"></div>
+    </div>
+    <div class="cont">
+        <router-outlet></router-outlet>
+    </div>
+</div>

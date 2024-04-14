@@ -19,14 +19,20 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
 import { DiscountInfoResolver } from './shared/services/discount/discount-info.resolver';
+import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { AuthorizationComponent } from './pages/authorization/authorization.component';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { UserInfoComponent } from './pages/user-info/user-info.component';
+import { OrderComponent } from './pages/order/order.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent},
+  { path: 'auth', component: AuthorizationComponent },
   { path: 'discount', component: DiscountComponent },
   { path: 'discount/:id', component: DiscountInfoComponent , resolve: {
     discountInfo: DiscountInfoResolver 
   } },
-  { path: 'product/:category', component: ProductComponent },
+  { path: 'product/:category', component: ProductComponent }, 
   { path: 'product/:category/:id', component: ProductInfoComponent, resolve: {
     productInfo: ProductInfoResolver
   } },
@@ -35,8 +41,13 @@ const routes: Routes = [
   { path: 'discount-add', component: DiscountAddComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'oferta', component: OfertaComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'cabinet', component: CabinetComponent, canActivate: [AuthGuard], children: [
+    { path: 'user-info', component: UserInfoComponent },
+    { path: '', pathMatch: 'prefix', redirectTo: 'usrr-info' }
+  ] },
   {
-    path: 'admin', component: AdminComponent, children: [
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard] ,children: [
       { path: 'category', component: AdminCategoryComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'discount', component: AdminDiscountComponent },

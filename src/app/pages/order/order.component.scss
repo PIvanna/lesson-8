@@ -1,0 +1,211 @@
+@import "../../shared/styles/_base.scss";
+@import "../../shared/styles/_mixins.scss";
+@import "../../shared/styles/_variables.scss";
+
+.container {
+    @include box(60%, 2700px);
+    margin: auto;
+
+    #title {
+        @include box(531px, 50px);
+        @include text(55px, sans-serif, bold);
+        margin: 50px auto;
+        text-align: center;
+        border-top: 6px solid $base-color;
+    }
+
+    #formPersonal {
+        @include box(100%, 1700px);
+        @include flex-row(flex, column, space-between, left);
+        min-height: 800px;
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .textarea {
+            @include box(100%, 100px);
+            border: 2px solid $base-color;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .radio-container {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 2px solid $base-color;
+            border-radius: 4px;
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .radio-container::after {
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-color: $base-color;
+            border-radius: 10%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .radio-text {
+            margin-right: 20px;
+            @include text(18px, sans-serif, normal);
+            position: relative;
+            top: -8px;
+        }
+
+        input[type="radio"]:checked+.radio-container::after {
+            opacity: 1;
+        }
+
+        input[type="checkbox"]:checked+.radio-container::after {
+            opacity: 1;
+        }
+
+        .alertData {
+            @include box(80%, 60px);
+            margin: 50px auto;
+            @include text(18px, sans-serif, normal);
+            border: 3px solid rgba(212, 0, 0, 0.3);
+            border-radius: 20px;
+            line-height: 60px;
+            text-align: center;
+            color: rgba(212, 0, 0, 0.6);
+        }
+
+        .punkts-menu {
+            @include flex-row(flex, row, left, left);
+            @include box(80%, 40px);
+            margin: 25px auto;
+
+            .num {
+                @include box(40px, 40px);
+                background-color: $base-color;
+                border-radius: 10px;
+                @include text(20px, sans-serif, bold);
+                @include flex-row(flex, row, center, center);
+                margin: 0 20px 0 0;
+            }
+        }
+
+        .group {
+            @include flex-row(flex, row, space-between, left);
+            @include box(80%, 80px);
+            margin: 25px auto;
+        }
+
+        .label {
+            @include text(22px, sans-serif, bold);
+            line-height: 40px;
+        }
+
+        .inputForm {
+            @include box(100%, 60px);
+            border-radius: 20px;
+            border: 2px solid $base-color;
+            padding: 10px;
+        }
+
+        .input-small {
+            @include box(50%, 60px);
+            padding: 10px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border: 2px solid $base-color;
+        }
+
+        .checkSelect {
+            @include box(100%, 60px);
+            border: 2px solid $base-color;
+            border-radius: 20px;
+            line-height: 60px;
+            @include text(18px, sans-serif, normal);
+            padding-left: 20px;
+        }
+
+        .checkOption {
+            @include box(100%, 50px);
+            list-style-type: none;
+            @include text(18px, sans-serif, normal);
+            line-height: 40px;
+            transition: color 0.5s;
+
+            &:hover {
+                color: $base-color;
+                cursor: pointer;
+            }
+        }
+
+        .ulOption {
+            @include box(100%, 300px);
+            background-color: white;
+            padding-left: 10px;
+            overflow-y: auto;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .wrapper-map {
+            width: 50%;
+            margin: auto
+        }
+
+        #butApply {
+            @include box(50%, 60px);
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            padding: 10px;
+            border: 2px solid $base-color;
+            background-color: $base-color;
+        }
+
+        .inputForm::placeholder {
+            @include text(14px, sans-serif, normal);
+
+        }
+
+        #butLogin {
+            @include box(40%, 60px);
+            background-color: $base-color;
+            border-radius: 10px;
+            @include text(18px, sans-serif, bold);
+            color: white;
+            margin: auto;
+            border: 3px solid transparent;
+            transition: border 0.5s, background-color 0.5s, color 0.5s;
+        }
+
+        #butAddress {
+            @include box(45%, 60px);
+            background-color: white;
+            border-radius: 10px;
+            border: 3px solid $base-color;
+            @include text(18px, sans-serif, bold);
+            color: $base-color;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        #butAddress:hover {
+            background-color: $base-color;
+            color: black;
+        }
+
+        #butLogin:hover {
+            background-color: white;
+            color: $base-color;
+            border: 3px solid $base-color;
+        }
+
+    }
+}

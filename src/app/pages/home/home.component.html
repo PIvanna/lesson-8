@@ -31,32 +31,40 @@
     </div>
 
     <div class="menu-roli">
-        <div class="menu-roli-punkts"  [ngClass]="{'menu-roli-punkts-active': selectedPathPart === null}" (click)="openAll()">
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === null}"
+            (click)="openAll()">
             Всі
         </div>
-        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'filadelfiya'}" (click)="openFiladelfiya()">
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'filadelfiya'}"
+            (click)="openFiladelfiya()">
             Роли Філадельфія
         </div>
-        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'kaliforniya'}" (click)="openKaliforniya()">
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'kaliforniya'}"
+            (click)="openKaliforniya()">
             Роли Каліфорнія
         </div>
-        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'zapechenyj'}" (click) = "openZapechenyj()">
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'zapechenyj'}"
+            (click)="openZapechenyj()">
             Запечені роли
         </div>
-        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'firmovi'}" (click) = "openFirmovi()">
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'firmovi'}"
+            (click)="openFirmovi()">
             Фірмові суші
         </div>
-        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'maki'}" (click) = "openMaki()">
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'maki'}"
+            (click)="openMaki()">
             Роли Макі
         </div>
-        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'premium'}" (click) = "openPremium()">
+        <div class="menu-roli-punkts" [ngClass]="{'menu-roli-punkts-active': selectedPathPart === 'premium'}"
+            (click)="openPremium()">
             Преміум Суші
         </div>
     </div>
+
     <div class="menu-product">
         <div style="min-width: 0; min-height: 0px;" *ngFor="let product of userProducts">
-            <div  class="card" *ngIf="selectedPathPart === null || product.path.includes(selectedPathPart)">
-                <img  [routerLink]="[ '/product/'+product.category.path, product.id ]" [src]="product.imagePath"
+            <div class="card" *ngIf="selectedPathPart === null || product.path.includes(selectedPathPart)">
+                <img [routerLink]="[ '/product/'+product.category.path, product.id ]" [src]="product.imagePath"
                     class="img-top" [alt]="product.name">
                 <div>
                     <h5 [routerLink]="[ '/product/'+product.category.path, product.id ]" class="card-title">{{
@@ -72,9 +80,10 @@
                     <div class="bottom-item">
                         <h4 class="card-price">{{ product.price * product.count}} грн</h4>
                         <div class="manageCount">
-                            <button type="button" (click) = "productCount(product, false)" class="btnMinus">-</button>
-                            <input class="countProduct" type="text" readonly [value]="product.count"  style="width: 40px;">
-                            <button type="button" (click) = "productCount(product, true)" class="btnAdd">+</button>
+                            <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>
+                            <input class="countProduct" type="text" readonly [value]="product.count"
+                                style="width: 40px;">
+                            <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
                         </div>
                         <button class="btnOrder" type="button" (click)="addToBasket(product)">Замовити</button>
                     </div>
@@ -140,3 +149,5 @@
             <hr>
         </div>
     </div>
+
+</div>
