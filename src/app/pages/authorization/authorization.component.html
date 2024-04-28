@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="authForm" id="form" (ngSubmit)="login()">
+  <form [formGroup]="authForm" id="form" (ngSubmit)="loginAdmin()">
     <div class="group">
       <label class="label" for="email">Email</label>
       <input formControlName="email" class="inputForm" name="email" placeholder="*Ваш email" type="text" id="email">
@@ -10,4 +10,4 @@
     </div>
     <button [disabled]="authForm.invalid" id="butLogin" type="submit">Увійти</button>
   </form>
-</div>
+</div> 

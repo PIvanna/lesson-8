@@ -1,0 +1,53 @@
+<form [formGroup]="authForm">
+    <p class="nameModule">{{ !isLogin ? 'Вхід в кабінет' : 'Зареєструватись' }}</p>
+    <div class="form-group" *ngIf="isLogin">
+        <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+            <mat-label>Ваше ім'я</mat-label>
+            <input matInput type="text" class="inputForm" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+            <mat-label>Ваше прізвище</mat-label>
+            <input matInput type="text" class="inputForm" formControlName="lastName">
+        </mat-form-field>
+    </div>
+    <div class="form-group" *ngIf="isLogin">
+        <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+            <mat-label>Ваш телефон</mat-label>
+            <input matInput type="text" class="inputForm" formControlName="phoneNumber">
+        </mat-form-field>
+    </div>
+    <div class="form-group">
+        <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" class="inputForm" formControlName="email">
+        </mat-form-field>
+    </div>
+    <div class="form-group" *ngIf="!isLogin">
+        <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+            <mat-label>Пароль</mat-label>
+            <input matInput type="password" class="inputForm" formControlName="password">
+        </mat-form-field>
+    </div>
+    <div class="form-group" *ngIf="isLogin">
+        <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+            <mat-label>Пароль</mat-label>
+            <input style="border-radius: 20px !important;" matInput type="password" class="inputForm"
+                formControlName="password">
+        </mat-form-field>
+        <mat-form-field style="width: 40%;" appearance="outline" color="primary">
+            <mat-label>Повторіть пароль</mat-label>
+            <input matInput type="password" class="inputForm" formControlName="passwordRepeat">
+            <mat-error *ngIf="authForm.hasError('passwordMismatch')">
+                Паролі не співпадають.
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button class="butForm" type="button" *ngIf="!isLogin" (click)="loginUser()"
+        mat-dialog-close>Увійти в кабінет</button>
+    <button mat-raised-button class="butForm" type="button" *ngIf="isLogin" (click)="registerUser()"
+        >Зареєструватись</button>
+    <div class="textBlock">
+        <a class="textModule">Забули пароль</a>
+        <a class="textModule" (click)="changeIsLogin()">{{ !isLogin ? 'Зареєструватись' : 'Увійти в кабінет' }}</a>
+    </div>
+</form> 

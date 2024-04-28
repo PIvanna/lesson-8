@@ -1,0 +1,31 @@
+<div class="basket-info-m">
+    <div class="basket-wrapper" *ngIf="!basketEmpty">
+        <div class="basket-item" *ngFor="let product of basket">
+            <img class="basket-img" [src]="product.imagePath" alt="">
+            <p class="basket-name">{{ product.name}}</p>
+            <div class="manageCount">
+                <button type="button" (click)="productCount(product, false)" class="btnMinus">-</button>
+                <input class="countProduct" type="text"
+                    [value]="product.count === null || product.count === 0 ? 1 : product.count" readonly
+                    style="width: 40px;">
+                <button type="button" (click)="productCount(product, true)" class="btnAdd">+</button>
+            </div>
+            <p class="basket-price">{{ product.count === null ? product.price : product.price * product.count }} грн
+            </p>
+            <img class="basket-delete" (click)="delete(product)"
+                src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Ffree-trash-icon-347-thumb.png?alt=media&token=bfb5a522-b042-42e4-b487-0542782b5167"
+                alt="" class="basket-delete">
+        </div>
+    </div>
+    <div class="basket-empty" *ngIf="basketEmpty">
+        <img src="https://firebasestorage.googleapis.com/v0/b/monosushi-8418b.appspot.com/o/images%2Fcart-empty-img.svg?alt=media&token=539f0fbe-4658-4c86-a49b-7c899c72feb8"
+            alt="" class="basket-empty-img">
+        <p class="basket-empty-p">Кошик порожній</p>
+        <button class="goToMenu" mat-dialog-close [routerLink]="[ '' ]" > Перейти до каталогу</button>
+    </div>
+    <div class="basket-option">
+        <p class="basket-option-price">Сума: {{ total }} грн</p>
+        <button type="button" mat-dialog-close [routerLink] = "[ '/order' ]" class="orderBut">Оформити замовлення</button>
+    </div>
+
+</div>

@@ -17,5 +17,6 @@ export class AdminComponent {
     this.router.navigate(['/']);
     localStorage.removeItem('currentUser');
     this.accountService.isUserLogin$.next(true);
+    window.location.reload();
   }
 }

@@ -1,9 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ROLE } from 'src/app/shared/constants/constants';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { AccountService } from 'src/app/shared/services/account/account.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthdialogComponent } from '../authdialog/authdialog.component';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { BasketMenuComponent } from '../basket-menu/basket-menu.component';
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+} from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +22,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss', "../../shared/styles/_mixins.scss"]
 })
 export class HeaderComponent {
+  @ViewChild('menuTrigger')
+  menuTrigger!: MatMenuTrigger;
+
   public menuOpen = false;
   public basketOpen = false;
   public basketEmpty = true;
@@ -52,7 +66,8 @@ export class HeaderComponent {
   constructor(
     private orderService: OrderService,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
   ) {
   }
 
@@ -127,6 +142,7 @@ export class HeaderComponent {
     this.router.navigate(['/']);
     localStorage.removeItem('currentUser');
     this.accountService.isUserLogin$.next(true);
+    window.location.reload();
   }
 
   checkUpdatesUserLogin(): void {
@@ -134,4 +150,23 @@ export class HeaderComponent {
       this.checkUserLogin();
     })
   }
+
+  openLoginDialog(): void {
+    this.dialog.open(AuthdialogComponent, {
+      backdropClass: 'dialog-back',
+      panelClass: 'auth-dialog',
+      autoFocus: false
+    }).afterClosed().subscribe(result => {
+    })
+  }
+
+  openBasketModal(): void {
+    const dialogRef = this.dialog.open(BasketMenuComponent, {
+      panelClass: 'basket-info',
+    });
+    dialogRef.afterClosed().subscribe(() => {
+    });
+
+  }
+
 }

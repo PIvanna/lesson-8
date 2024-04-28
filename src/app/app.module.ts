@@ -26,13 +26,23 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { OfertaComponent } from './pages/oferta/oferta.component';
 
+
+
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
 import { AuthorizationComponent } from './pages/authorization/authorization.component';
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
 import { UserInfoComponent } from './pages/user-info/user-info.component';
 import { OrderComponent } from './pages/order/order.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
+import { AuthdialogComponent } from './components/authdialog/authdialog.component';
+import { BasketMenuComponent } from './components/basket-menu/basket-menu.component';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +68,8 @@ import { OrderComponent } from './pages/order/order.component';
     CabinetComponent,
     UserInfoComponent,
     OrderComponent,
+    AuthdialogComponent,
+    BasketMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,8 +77,12 @@ import { OrderComponent } from './pages/order/order.component';
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

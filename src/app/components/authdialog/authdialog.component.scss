@@ -1,0 +1,70 @@
+@import "../../shared/styles/_base.scss";
+@import "../../shared/styles/_mixins.scss";
+@import "../../shared/styles/_variables.scss";
+
+form {
+    @include flex-row(flex, column, space-around, center);
+    padding-top: 80px;
+    padding-bottom: 80px;
+    min-height: 500px;
+    width: 100%;
+
+
+    .nameModule {
+        @include box(100%, 50px);
+        @include text(24px, sans-serif, bold);
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .form-group {
+        @include box(100%, 60px);
+        margin: 10px 0;
+        @include flex-row(flex, row, space-around, center);
+    }
+
+    .inputForm{
+        border-radius: 15px;
+    }
+
+    .mat-mdc-text-field-wrapper{
+        border-radius: 15px;
+    }
+
+    .butForm{
+        @include box(90%, 50px);
+        background-color: #b5d8f7;
+        @include text(20px, sans-serif, bold);
+        border: 3px solid transparent;
+        transition: background-color 0.5s, border 0.5s;
+
+        &:hover{
+            border: 3px solid $base-color;
+            background-color: white;
+        }
+    }
+    
+    .textModule{
+        @include text(18px, sans-serif, bold);
+    }
+
+    .textBlock{
+        @include box(90%, 50px);
+        @include flex-row(flex, row, space-between, center);
+
+        .textModule{
+            color: black; 
+            border-bottom: 3px solid transparent;
+            transition: color 0.5s, border-bottom 0.5s;
+            position: relative;
+
+            &:hover{
+                color: $base-color;
+                border-bottom: 3px solid $base-color;
+            }
+
+        }
+
+        
+    }
+}
