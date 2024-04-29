@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="order-info">
+        <div class="order-element" style="width: 10%;">№ замовлення</div>
+        <div class="order-element" style="width: 30%;">Дата та час</div>
+        <div class="order-element" style="width: 25%;">Адреса</div>
+        <div class="order-element" style="width: 10%;">Сума</div>
+        <div class="order-element" style="width: 15%; ">Статус</div>
+        <div class="order-element" style="width: 10%;"></div>
+    </div>
+    <div class="order-info" *ngFor="let order of userOrders">
+        <div class="order-row">
+            <div class="order-info">
+                <div class="order-element" style="width: 10%;"> <b>№ {{ order.id }}</b></div>
+                <div class="order-element" style="width: 30%;"> {{ order.data }}</div>
+                <div class="order-element" style="width: 25%;"> {{ order.address }}</div>
+                <div class="order-element" style="width: 10%;"> <b>{{ order.sum }}</b> грн</div>
+                <div class="order-element" style="width: 15%; color: rgb(35, 237, 35);"> {{ order.status }}</div>
+                <div class="order-element" style="width: 10%; color: #b5d8f7">
+                    <button type="button" style="color: #b5d8f7" class="butRepeat">повторити</button>
+                </div>
+            </div>
+            <div class="order-info" *ngFor="let product of order.products">
+                <div class="order-element" style="width: 10%;"></div>
+                <div class="order-element" style="width: 40%; text-align: center;"> {{ product.name }}</div>
+                <div class="order-element" style="width: 15%;"></div>
+                <div class="order-element" style="width: 29%;">{{ product.count }}</div>
+                <div class="order-element" style="width: 3%;"></div>
+                <div class="order-element" style="width: 3%;"></div>
+                <div class="order-element" style="width: 15%;"></div>
+            </div>
+        </div>
+    </div>
+</div>

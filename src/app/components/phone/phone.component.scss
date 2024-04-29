@@ -1,0 +1,52 @@
+@import "../../shared/styles/_base.scss";
+@import "../../shared/styles/_mixins.scss";
+@import "../../shared/styles/_variables.scss";
+
+.container {
+    @include box(100%, 100%);
+    @include flex-row(flex, column, space-around, center);
+    padding-top: 80px;
+
+    .mainTitle {
+        @include box(100%, 50px);
+        @include text(30px, sans-serif, bold);
+        line-height: 50px;
+        text-align: center;
+    }
+
+    .smallText {
+        @include box(60%, 75px);
+        @include text(20px, sans-serif, normal);
+        line-height: 30px;
+        text-align: center;
+    }
+
+    form {
+       width: 100%;
+       @include flex-row(flex, column, center, center);
+
+        .form-group {
+            @include box(80%, 60px);
+            margin: 10px 0;
+            @include flex-row(flex, row, space-around, center);
+
+            .inputForm {
+                width: 100%;
+            }
+        }
+
+        .butForm{
+            @include box(72%, 50px);
+            background-color: #b5d8f7;
+            @include text(20px, sans-serif, bold);
+            border: 3px solid transparent;
+            transition: background-color 0.5s, border 0.5s;
+    
+            &:hover{
+                border: 3px solid $base-color;
+                background-color: white;
+            }
+        }
+
+    }
+}

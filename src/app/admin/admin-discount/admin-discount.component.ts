@@ -9,6 +9,7 @@ import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResu
   templateUrl: './admin-discount.component.html',
   styleUrls: ['./admin-discount.component.scss']
 })
+
 export class AdminDiscountComponent {
   public placeholderName = '*Назва';
   public placeholderTitle = '*Заголовок';
@@ -88,7 +89,7 @@ export class AdminDiscountComponent {
         console.log("Hi")
         this.bShowForm = false;
         this.selectedFileName = "";
-        
+
       })
     }
     this.editStatus = false;

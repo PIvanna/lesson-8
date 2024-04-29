@@ -1,0 +1,19 @@
+<div class="container">
+    <p class="mainTitle">Ми зателефонуємо</p>
+    <p class="smallText">Залиште номер телефону і наші менеджери зв’яжуться з вами</p>
+    <form [formGroup]="phoneForm">
+        <div class="form-group">
+            <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+                <mat-label>Ваше ім'я</mat-label>
+                <input matInput type="text" class="inputForm" formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field style="width: 90%;" appearance="outline" color="primary">
+                <mat-label>Ваш номер телефону</mat-label>
+                <input matInput type="text" class="inputForm" formControlName="phoneNumber">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button class="butForm" type="button" mat-dialog-close>Надіслати</button>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+@import "../../../shared/styles/base";
+@import "../../../shared/styles/mixins";
+@import "../../../shared/styles/variables";
+
+.container {
+    width: 1000px;
+    margin: auto;
+
+    .order-info {
+        width: 100%;
+        min-height: 100px;
+        border: 1px solid black;
+        @include flex-row(flex, row, space-around, center);
+        border-left: none;
+        border-right: none;
+        border-top: 2px solid $base-color;
+        border-bottom: 2px solid $base-color;
+        @include text(20px, sans-serif, normal);
+        text-align: center;
+
+        .order-row {
+            width: 100%;
+            min-height: 100px;
+            @include flex-row(flex, column, space-around, center);
+        }
+
+        .butRepeat{
+            border: none;
+            background-color: transparent;
+
+            &:hover{
+                color: $base-color;
+            }
+        }
+    }
+
+}

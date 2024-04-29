@@ -15,6 +15,7 @@ import {
 } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { PhoneComponent } from '../phone/phone.component';
 
 @Component({
   selector: 'app-header',
@@ -157,7 +158,7 @@ export class HeaderComponent {
       panelClass: 'auth-dialog',
       autoFocus: false
     }).afterClosed().subscribe(result => {
-    })
+    }) 
   }
 
   openBasketModal(): void {
@@ -166,7 +167,14 @@ export class HeaderComponent {
     });
     dialogRef.afterClosed().subscribe(() => {
     });
+  }
 
+  openPhoneModal(): void{
+    const dialogRef = this.dialog.open(PhoneComponent, {
+      panelClass: 'phone',
+    });
+    dialogRef.afterClosed().subscribe(() => {
+    });
   }
 
 }

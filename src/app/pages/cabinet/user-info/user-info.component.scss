@@ -1,6 +1,6 @@
-@import "../../shared/styles/_base.scss";
-@import "../../shared/styles/_mixins.scss";
-@import "../../shared/styles/_variables.scss";
+@import "../../../shared/styles/base";
+@import "../../../shared/styles/mixins";
+@import "../../../shared/styles/variables";
 
 
 
@@ -11,7 +11,7 @@
         @include box(100%, 800px);
         @include flex-row(flex, column, space-between, left);
 
-       
+
 
         .punkts-menu {
             @include flex-row(flex, row, left, left);
@@ -82,7 +82,7 @@
             background-color: $base-color;
             color: black;
         }
-        
+
         #butLogin:hover{
             background-color: white;
             color: $base-color;

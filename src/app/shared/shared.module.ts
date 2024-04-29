@@ -13,13 +13,25 @@ const MATERIAL = [
     MatMenuModule
 ];
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 @NgModule({
     declarations: [],
     imports: [
-        ...MATERIAL
+        ...MATERIAL,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpClientModule,
+      CommonModule
     ],
     exports: [
-        ...MATERIAL
+        ...MATERIAL,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpClientModule,
+      CommonModule
     ],
     providers: [MatMenuTrigger]
 })

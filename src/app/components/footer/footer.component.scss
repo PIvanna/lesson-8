@@ -118,7 +118,7 @@
     .phone {
         @include box(300px, 100%);
 
-        padding-top: 20px;
+        padding-top: 120px;
 
         p{
             @include text(20px, sans-serif, normal);
