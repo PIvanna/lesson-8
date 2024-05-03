@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IDiscountRequest, IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
+import { IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
 import { DiscountService } from 'src/app/shared/services/discount/discount.service';
 import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
 
@@ -35,10 +35,10 @@ export class AdminDiscountComponent {
   public discountForm!: FormGroup;
   public uploadPercent = 0;
   public isUploaded = false;
-  private currentDiscountId = 0;
+  currentDiscountId = 0;
 
   constructor(
-    private discountService: DiscountService,
+    public discountService: DiscountService,
     private fb: FormBuilder,
     private storage: Storage
   ) { }

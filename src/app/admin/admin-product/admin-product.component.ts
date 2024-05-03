@@ -14,11 +14,11 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
 export class AdminProductComponent {
   public adminCategories: Array<ICategoryResponse> = [];
   public adminProducts: Array<IProductResponse> = [];
-  public productForm!: FormGroup; 
+  public productForm!: FormGroup;
   public editStatus = false;
   public isUploaded = false;
   private currentCategoryId = 0;
-  private currentProductId = 0;
+  currentProductId = 0;
   public placeholderName = '*Назва';
   public placeholderTitle = '*Шлях';
   public placeholderDescription = "*Інгредієнти"

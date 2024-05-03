@@ -8,13 +8,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthdialogComponent } from '../authdialog/authdialog.component';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { BasketMenuComponent } from '../basket-menu/basket-menu.component';
-import {
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-} from '@angular/material/dialog';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
 import { PhoneComponent } from '../phone/phone.component';
 
 @Component({
@@ -41,18 +34,6 @@ export class HeaderComponent {
       }
     }
   }
-
-  openBasket() {
-
-
-    this.basketOpen = this.basketOpen ? false : true;
-  }
-
-  closeBasket() {
-    this.basketOpen = false;
-  }
-
-
 
   openMenu() {
     this.menuOpen = true;
@@ -100,30 +81,6 @@ export class HeaderComponent {
     })
   }
 
-  productCount(product: IProductResponse, value: boolean): void {
-    if (value) {
-      ++product.count;
-    } else if (!value && product.count > 1) {
-      --product.count;
-    }
-    this.updateLocalStorage();
-  }
-
-  updateLocalStorage(): void {
-    localStorage.setItem('basket', JSON.stringify(this.basket));
-    this.getTotalPrice();
-  }
-
-  delete(product: IProductResponse) {
-    const index = this.basket.findIndex(item => item.id === product.id);
-    if (index !== -1) {
-      this.basket.splice(index, 1);
-      this.updateLocalStorage();
-    }
-    if (this.basket.length == 0) {
-      this.basketEmpty = true;
-    }
-  }
 
   checkUserLogin(): void {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
@@ -158,7 +115,7 @@ export class HeaderComponent {
       panelClass: 'auth-dialog',
       autoFocus: false
     }).afterClosed().subscribe(result => {
-    }) 
+    })
   }
 
   openBasketModal(): void {

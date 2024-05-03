@@ -27,13 +27,11 @@ export class AdminCategoryComponent {
   public adminCategory: Array<ICategoryResponse> = [];
   public imagePath = '';
   public editStatus = false;
-  public editID!: number;
-
   public categoryForm!: FormGroup;
   public uploadPercent = 0;
   public isUploaded = false;
-  private currentDiscountId = 0;
- 
+  currentDiscountId = 0;
+
   constructor(
     private categoryService: CategoryService,
     private fb: FormBuilder,
@@ -46,7 +44,6 @@ export class AdminCategoryComponent {
   }
 
   initCategoryForm(): void {
-
     this.categoryForm = this.fb.group({
       name: [null, Validators.required],
       path: [null, Validators.required],

@@ -1,29 +1,25 @@
 <div class="container">
-    <div class="card">
-        <img [src]="currentProduct.imagePath" class="img-top" [alt]="currentProduct.name">
-        <div class="card-wrapper" style="width: 50%; height: 100%;">
-            <h5 class="card-title">{{
-                currentProduct.name }}</h5>
-            <div class="item-card">
-                <ng-container
-                    *ngIf="currentProduct.category.path != 'sousi' && currentProduct.category.path != 'drinks'">
-                    <p class="card-text"><span class="baseColor">Склад:</span> {{ currentProduct.description }}</p>
-                </ng-container>
-               
-          
-                <h4 class="card-weight"><span class="baseColor">Вага:</span> {{ currentProduct.weight }} г</h4>
-            </div>
-            <div class="bottom-item">
-                <h4 class="card-price">{{ currentProduct.count === null ? currentProduct.price : currentProduct.price * currentProduct.count }} грн</h4>
-                <div class="manageCount">
-                    <button type="button" (click) = "productCount(currentProduct, false)" class="btnMinus">-</button>
-                    <input class="countProduct" type="text"
-                    [value]="currentProduct.count === null || currentProduct.count === 0 ? 1 : currentProduct.count" readonly
-                    style="width: 40px;">
-                    <button type="button" (click) = "productCount(currentProduct, true)" class="btnAdd">+</button>
-                </div>
-                <button class="btnOrder" type="button" (click)="addToBasket(currentProduct)">Замовити</button>
-            </div>
+  <div class="card">
+    <img [src]="currentProduct?.imagePath" class="img-top" [alt]="currentProduct?.name">
+    <div class="card-wrapper" style="width: 50%; height: 100%;">
+      <h5 class="card-title">{{ currentProduct?.name }}</h5>
+      <div class="item-card">
+        <ng-container *ngIf="currentProduct?.category?.path != 'sousi' && currentProduct?.category?.path != 'drinks'">
+          <p class="card-text"><span class="baseColor">Склад:</span> {{ currentProduct?.description }}</p>
+        </ng-container>
+        <h4 class="card-weight"><span class="baseColor">Вага:</span> {{ currentProduct?.weight }} г</h4>
+      </div>
+      <div class="bottom-item">
+        <h4 class="card-price">
+          {{ currentProduct ? (currentProduct.count === null ? currentProduct.price : currentProduct.price * currentProduct.count) + ' грн' : '' }}
+        </h4>
+        <div class="manageCount" *ngIf="currentProduct">
+          <button type="button" (click)="productCount(currentProduct, false)" class="btnMinus">-</button>
+          <input class="countProduct" type="text" [value]="currentProduct.count === null || currentProduct.count === 0 ? 1 : currentProduct.count" readonly style="width: 40px;">
+          <button type="button" (click)="productCount(currentProduct, true)" class="btnAdd">+</button>
         </div>
+        <button class="btnOrder" type="button" (click)="addToBasket(currentProduct)" *ngIf="currentProduct">Замовити</button>
+      </div>
     </div>
+  </div>
 </div>

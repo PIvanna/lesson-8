@@ -25,12 +25,12 @@ export class ProductComponent {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private orderService: OrderService,
+    public orderService: OrderService,
     private router: Router
-  ) { 
+  ) {
     this.eventSubscription = this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd) {
-        this.loadProducts(); 
+        this.loadProducts();
       }
     })
     this.isCategoryRoli();
@@ -56,7 +56,7 @@ isCategoryRoli(): boolean {
 
   ngOnDestroy(): void {
       this.eventSubscription.unsubscribe();
-  } 
+  }
 
   public selectedPathPart: string | null = null;
 
@@ -66,7 +66,7 @@ isCategoryRoli(): boolean {
   }
 
   openFiladelfiya() {
-    this.selectedPathPart = 'filadelfiya'; 
+    this.selectedPathPart = 'filadelfiya';
   }
 
   openKaliforniya() {

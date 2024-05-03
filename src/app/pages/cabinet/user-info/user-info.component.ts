@@ -11,12 +11,18 @@ import { AccountService } from 'src/app/shared/services/account/account.service'
 })
 export class UserInfoComponent {
   public personalForm!: FormGroup;
-  public currentUser!: IUserInfo;
+  public currentUser: IUserInfo = {
+    name: '',
+    surname: '',
+    number: '',
+    email: '',
+    birthday: ''
+  };
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
     private router: Router
-  ) { 
+  ) {
     this.login();
   }
 

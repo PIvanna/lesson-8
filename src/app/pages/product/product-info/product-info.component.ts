@@ -16,19 +16,20 @@ export class ProductInfoComponent {
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private orderService: OrderService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(response => {
-      this.currentProduct = response['productInfo'];
-    })
+    if (this.activatedRoute.data) {
+      this.activatedRoute.data.subscribe(response => {
+        this.currentProduct = response['productInfo'];
+      });
+    }
   }
 
   loadProduct(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.productService.getOne(id).subscribe(data => {
-    })
+    });
   }
 
   productCount(product: IProductResponse, value: boolean): void {

@@ -1,17 +1,22 @@
 import { TestBed } from '@angular/core/testing';
-import { ResolveFn } from '@angular/router';
 
-import { productInfoResolver } from './product-info.resolver';
+import { ProductInfoResolver } from './product-info.resolver';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-describe('productInfoResolver', () => {
-  const executeResolver: ResolveFn<boolean> = (...resolverParameters) => 
-      TestBed.runInInjectionContext(() => productInfoResolver(...resolverParameters));
+describe('ProductInfoResolver', () => {
+  let resolver: ProductInfoResolver;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [ProductInfoResolver],
+      imports: [
+        HttpClientTestingModule // Додали HttpClientModule до imports
+      ]
+    });
+    resolver = TestBed.inject(ProductInfoResolver);
   });
 
   it('should be created', () => {
-    expect(executeResolver).toBeTruthy();
+    expect(resolver).toBeTruthy();
   });
 });

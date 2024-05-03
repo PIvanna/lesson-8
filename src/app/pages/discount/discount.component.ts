@@ -4,20 +4,14 @@ import { Subscription } from 'rxjs';
 import { IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
 import { DiscountService } from 'src/app/shared/services/discount/discount.service';
 
-@Component({ 
+@Component({
   selector: 'app-discount',
   templateUrl: './discount.component.html',
   styleUrls: ['./discount.component.scss']
 })
 export class DiscountComponent {
   public showMoreRoli = false;
-  showMoreButPoli(){
-    this.showMoreRoli = true;
-  }
 
-  closeMoreButRoli(){
-    this.showMoreRoli = false;
-  }
   public userDiscount: Array<IDiscountResponse> = [];
   private eventSubscription!: Subscription;
 
@@ -25,7 +19,7 @@ export class DiscountComponent {
     private discountService: DiscountService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) { 
+  ) {
     this.eventSubscription = this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd) {
         this.loadDiscounts();
@@ -48,5 +42,5 @@ export class DiscountComponent {
       this.eventSubscription.unsubscribe();
   }
 
-  
+
 }
