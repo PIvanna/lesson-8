@@ -10,7 +10,7 @@ import { OrderService } from 'src/app/shared/services/order/order.service';
   styleUrls: ['./discount-info.component.scss']
 })
 export class DiscountInfoComponent {
-  public currentDiscount!: IDiscountResponse; 
+  public currentDiscount!: IDiscountResponse;
 
   constructor(
     private discountService: DiscountService,
@@ -25,11 +25,11 @@ export class DiscountInfoComponent {
   }
 
   loadProduct(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.discountService.getOne(id).subscribe(data => {
-      this.currentDiscount = data;
+    const id: null | string = this.activatedRoute.snapshot.paramMap.get('id');
+    this.discountService.getOneFirebase(id).subscribe(data => {
+      this.currentDiscount = data as IDiscountResponse;
     })
   }
 
-  
+
 }

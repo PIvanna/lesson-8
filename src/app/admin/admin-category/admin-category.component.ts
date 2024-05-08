@@ -31,6 +31,7 @@ export class AdminCategoryComponent {
   public uploadPercent = 0;
   public isUploaded = false;
   currentDiscountId = 0;
+  private currentCategoryId!: number | string;
 
   constructor(
     private categoryService: CategoryService,
@@ -52,21 +53,20 @@ export class AdminCategoryComponent {
   }
 
   loadCategory(): void {
-    this.categoryService.getAll().subscribe((data: ICategoryResponse[]) => {
-      this.adminCategory = data;
-      console.log(this.adminCategory)
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategory = data as ICategoryResponse[];
     })
   }
 
   addCategory(): void {
     if (this.editStatus) {
-      this.categoryService.update(this.categoryForm.value, this.currentDiscountId).subscribe(() => {
+      this.categoryService.updateFirebase(this.categoryForm.value, this.currentCategoryId as string).then(() => {
         this.selectedFileName = "";
         this.bShowForm = false;
         this.loadCategory();
       })
     } else {
-      this.categoryService.create(this.categoryForm.value).subscribe(() => {
+      this.categoryService.createFirebase(this.categoryForm.value).then(() => {
         this.selectedFileName = "";
         this.loadCategory();
         this.bShowForm = false;
@@ -86,12 +86,12 @@ export class AdminCategoryComponent {
     });
     this.bShowForm = true;
     this.editStatus = true;
-    this.currentDiscountId = category.id;
+    this.currentCategoryId = category.id;
     this.isUploaded = true;
   }
 
   deleteCategory(category: ICategoryResponse): void {
-    this.categoryService.delete(category.id).subscribe(() => {
+    this.categoryService.deleteFirebase(category.id as any).then(() => {
       this.loadCategory();
     })
   }

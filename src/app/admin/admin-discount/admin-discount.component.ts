@@ -4,6 +4,7 @@ import { IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.i
 import { DiscountService } from 'src/app/shared/services/discount/discount.service';
 import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
 
+
 @Component({
   selector: 'app-admin-discount',
   templateUrl: './admin-discount.component.html',
@@ -35,7 +36,7 @@ export class AdminDiscountComponent {
   public discountForm!: FormGroup;
   public uploadPercent = 0;
   public isUploaded = false;
-  currentDiscountId = 0;
+  currentDiscountId!: number | string;
 
   constructor(
     public discountService: DiscountService,
@@ -61,14 +62,20 @@ export class AdminDiscountComponent {
   }
 
   loadDiscounts(): void {
-    this.discountService.getAll().subscribe((data: IDiscountResponse[]) => {
-      this.adminDiscounts = data;
-    })
+    this.discountService.getAllFirebase().subscribe(data => {
+      this.adminDiscounts = data.map(discount => ({
+        ...discount,
+        date: discount['date'].toDate()
+      })) as IDiscountResponse[];
+    });
   }
+
+
+
 
   addDiscount(): void {
     if (this.editStatus) {
-      this.discountService.update(this.discountForm.value, this.currentDiscountId).subscribe(() => {
+      this.discountService.updateFirebase(this.discountForm.value, this.currentDiscountId as string).then(() => {
         this.loadDiscounts();
         this.bShowForm = false;
         this.selectedFileName = "";
@@ -78,7 +85,7 @@ export class AdminDiscountComponent {
         });
       })
     } else {
-      this.discountService.create(this.discountForm.value).subscribe(() => {
+      this.discountService.createFirebase(this.discountForm.value).then(() => {
         const currentDate = new Date();
         this.discountForm.patchValue({
           createdDate: [{ value: currentDate, disabled: true }],
@@ -89,7 +96,6 @@ export class AdminDiscountComponent {
         console.log("Hi")
         this.bShowForm = false;
         this.selectedFileName = "";
-
       })
     }
     this.editStatus = false;
@@ -114,7 +120,7 @@ export class AdminDiscountComponent {
   }
 
   deleteDiscount(discount: IDiscountResponse): void {
-    this.discountService.delete(discount.id).subscribe(() => {
+    this.discountService.deleteFirebase(discount.id as any).then(() => {
       this.loadDiscounts();
     })
   }

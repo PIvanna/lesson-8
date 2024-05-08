@@ -48,12 +48,14 @@ export class HomeComponent{
 
   }
 
-  
+
 
   loadProducts(): void {
     const categoryName = 'roli';
-    this.productService.getAllByCategory(categoryName).subscribe(data => {
-      this.userProducts = data;
+    this.productService.getAllFirebase().subscribe(data => {
+      this.productService.getAllFirebase().subscribe(data => {
+        this.userProducts = data.filter(product => product['category']?.path === categoryName) as IProductResponse[];
+      })
     })
   }
 

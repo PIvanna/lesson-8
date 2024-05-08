@@ -27,8 +27,8 @@ export class ProductInfoComponent {
   }
 
   loadProduct(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.productService.getOne(id).subscribe(data => {
+    const id: null | string = this.activatedRoute.snapshot.paramMap.get('id');
+    this.productService.getOneFirebase(id).subscribe(data => {
     });
   }
 

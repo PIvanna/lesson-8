@@ -49,8 +49,8 @@ isCategoryRoli(): boolean {
 
   loadProducts(): void {
     const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
-    this.productService.getAllByCategory(categoryName).subscribe(data => {
-      this.userProducts = data;
+    this.productService.getAllFirebase().subscribe(data => {
+      this.userProducts = data.filter(product => product['category']?.path === categoryName) as IProductResponse[];
     })
   }
 

@@ -162,7 +162,7 @@ export class OrderComponent {
     this.address = str;
     this.openOptionMenuAddress = false;
   }
-  
+
   selectHolders(cnt: string) {
     this.holdersOut = cnt;
     this.openOptionMenuHolders = false;
@@ -217,8 +217,8 @@ export class OrderComponent {
 
 
   loadDiscounts(): void {
-    this.discountService.getAll().subscribe(data => {
-      this.userDiscount = data;
+    this.discountService.getAllFirebase().subscribe(data => {
+      this.userDiscount = data as IDiscountResponse[];
     })
   }
 

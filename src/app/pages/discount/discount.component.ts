@@ -33,8 +33,8 @@ export class DiscountComponent {
 
 
   loadDiscounts(): void {
-    this.discountService.getAll().subscribe(data => {
-      this.userDiscount = data;
+    this.discountService.getAllFirebase().subscribe(data => {
+      this.userDiscount = data as IDiscountResponse[];
     })
   }
 

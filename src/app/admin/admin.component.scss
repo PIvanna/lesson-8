@@ -8,13 +8,13 @@
     margin: 100px auto;
     @include flex-row(flex, row, space-between, start);
 
-   
-    
+
+
     .menu {
         @include box(20%, 500px);
-        @include flex-row(flex, column, start, start);
-        
-        
+        @include flex-row(flex, column, flex-start, start);
+
+
 
         .punkts-menu {
             @include box(100%, 20%);
@@ -37,7 +37,7 @@
     .cont{
         width: 70%;
         min-height: 100px;
-        @include flex-row(flex, column, start, start);
+        @include flex-row(flex, column, flex-start, start);
 
     }
 }

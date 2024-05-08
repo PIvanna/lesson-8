@@ -66,7 +66,7 @@ describe('AuthdialogComponent', () => {
     component.isLogin = true;
     component.isRegister = false;
     component.changeIsLogin();
-    expect(component.isLogin).toBeFalse(); // Очікуємо, що isLogin зміниться на протилежне значення
+    expect(component.isLogin).toBeFalse();
     expect(component.isRegister).toBeTrue(); // Очікуємо, що isRegister зміниться на протилежне значення
   });
 
