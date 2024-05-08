@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import {AdminComponent} from "./admin.component";
-import {AdminProductComponent} from "./admin-product/admin-product.component";
 import {RouterModule, Routes} from "@angular/router";
-import {AdminOrdersComponent} from "./admin-orders/admin-orders.component";
-
 const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
